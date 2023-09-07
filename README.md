@@ -1,13 +1,9 @@
 # wp-starter-theme
 
-![wp-starter-theme](https://github.com/hisamikurita/wp-starter-theme/assets/47776346/7b128ba8-408e-4516-8196-713cefaf8b3a)
-
 ## 🐶 Usage Environment
 
 - [Docker Desktop](https://hub.docker.com/editions/community/docker-ce-desktop-mac/)
 - Node.js >= 16
-- [Composer](https://getcomposer.org/)
-- [WP-CLI](https://wp-cli.org/)
 
 ## 😌 Local Environment Setup
 
@@ -75,7 +71,7 @@ use svg-sprite
 use image svg
 
 ```bash
-<?= vite_src_images('icon-blank.svg') ?>
+<img src="<?= vite_src_images('icon-blank.svg') ?>" decoding="async" width="30" height="30" alt="">
 ```
 
 ## ✋ Lint
