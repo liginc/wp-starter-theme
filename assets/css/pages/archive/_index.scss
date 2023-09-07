@@ -1,0 +1,31 @@
+.archive {
+  position: relative;
+}
+
+.archive__bg {
+  padding: 140px 0 0;
+}
+
+.archive__inner {
+  margin: 120px 0 0;
+}
+
+.archive__list {
+  display: grid;
+  grid-template-columns: repeat(3, 14rem);
+  gap: 2rem;
+}
+
+.archive__text {
+  font-size: vw(17);
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+}
+
+.archive__text + .archive__text {
+  margin: 32px 0 0;
+}
+
+.archive__pagination {
+  margin: 120px 0 0;
+}

@@ -1,0 +1,26 @@
+{
+  "core": "https://ja.wordpress.org/wordpress-6.1.1-ja.zip",
+  "phpVersion": "8.1",
+  "plugins": [
+    "https://downloads.wordpress.org/plugin/all-in-one-wp-migration.7.75.zip",
+    "https://downloads.wordpress.org/plugin/wordpress-seo.19.3.zip",
+    "https://downloads.wordpress.org/plugin/query-monitor.3.7.1.zip",
+    "https://downloads.wordpress.org/plugin/wp-multibyte-patch.2.9.zip",
+    "https://downloads.wordpress.org/plugin/webp-converter-for-media.5.9.1.zip",
+    "https://downloads.wordpress.org/plugin/duplicate-post.4.5.zip"
+  ],
+  "themes": ["./theme/"],
+  "port": 8000,
+  "env": {
+    "tests": {
+      "port": 8001
+    }
+  },
+  "mappings": {
+    "sql": "./sql",
+    "wp-content/uploads": "./uploads"
+  },
+  "config": {
+    "WP_DEBUG": false
+  }
+}

@@ -1,0 +1,45 @@
+
+# BEGIN Converter for Media
+# ! --- DO NOT EDIT PREVIOUS LINE --- !
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteOptions Inherit
+  RewriteCond %{HTTP_ACCEPT} image/avif
+  RewriteCond %{REQUEST_FILENAME} -f
+  RewriteCond %{DOCUMENT_ROOT}/wp-content/uploads-webpc/uploads/$1.jpg.avif -f
+  RewriteRule (.+)\.jpg$ /wp-content/uploads-webpc/uploads/$1.jpg.avif [NC,T=image/avif,L]
+  RewriteCond %{HTTP_ACCEPT} image/avif
+  RewriteCond %{REQUEST_FILENAME} -f
+  RewriteCond %{DOCUMENT_ROOT}/wp-content/uploads-webpc/uploads/$1.jpeg.avif -f
+  RewriteRule (.+)\.jpeg$ /wp-content/uploads-webpc/uploads/$1.jpeg.avif [NC,T=image/avif,L]
+  RewriteCond %{HTTP_ACCEPT} image/avif
+  RewriteCond %{REQUEST_FILENAME} -f
+  RewriteCond %{DOCUMENT_ROOT}/wp-content/uploads-webpc/uploads/$1.png.avif -f
+  RewriteRule (.+)\.png$ /wp-content/uploads-webpc/uploads/$1.png.avif [NC,T=image/avif,L]
+  RewriteCond %{HTTP_ACCEPT} image/avif
+  RewriteCond %{REQUEST_FILENAME} -f
+  RewriteCond %{DOCUMENT_ROOT}/wp-content/uploads-webpc/uploads/$1.webp.avif -f
+  RewriteRule (.+)\.webp$ /wp-content/uploads-webpc/uploads/$1.webp.avif [NC,T=image/avif,L]
+</IfModule>
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteOptions Inherit
+  RewriteCond %{HTTP_ACCEPT} image/webp
+  RewriteCond %{REQUEST_FILENAME} -f
+  RewriteCond %{DOCUMENT_ROOT}/wp-content/uploads-webpc/uploads/$1.jpg.webp -f
+  RewriteRule (.+)\.jpg$ /wp-content/uploads-webpc/uploads/$1.jpg.webp [NC,T=image/webp,L]
+  RewriteCond %{HTTP_ACCEPT} image/webp
+  RewriteCond %{REQUEST_FILENAME} -f
+  RewriteCond %{DOCUMENT_ROOT}/wp-content/uploads-webpc/uploads/$1.jpeg.webp -f
+  RewriteRule (.+)\.jpeg$ /wp-content/uploads-webpc/uploads/$1.jpeg.webp [NC,T=image/webp,L]
+  RewriteCond %{HTTP_ACCEPT} image/webp
+  RewriteCond %{REQUEST_FILENAME} -f
+  RewriteCond %{DOCUMENT_ROOT}/wp-content/uploads-webpc/uploads/$1.png.webp -f
+  RewriteRule (.+)\.png$ /wp-content/uploads-webpc/uploads/$1.png.webp [NC,T=image/webp,L]
+  RewriteCond %{HTTP_ACCEPT} image/webp
+  RewriteCond %{REQUEST_FILENAME} -f
+  RewriteCond %{DOCUMENT_ROOT}/wp-content/uploads-webpc/uploads/$1.webp.webp -f
+  RewriteRule (.+)\.webp$ /wp-content/uploads-webpc/uploads/$1.webp.webp [NC,T=image/webp,L]
+</IfModule>
+# ! --- DO NOT EDIT NEXT LINE --- !
+# END Converter for Media

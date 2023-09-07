@@ -1,0 +1,32 @@
+.single {
+  position: relative;
+}
+
+.single__bg {
+  padding: 140px 0 0;
+}
+
+.single__inner {
+  margin: 120px 0 0;
+}
+
+.single__title {
+  font-size: vw(52);
+  font-weight: bold;
+}
+
+.single__thumbnail {
+  width: 100%;
+  height: vw(600);
+  margin: 32px 0 0;
+
+  & img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.single__content {
+  margin: 52px 0 0;
+}

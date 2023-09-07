@@ -1,0 +1,19 @@
+{
+  "plugins": ["stylelint-prettier"],
+  "extends": [
+    "stylelint-config-standard-scss",
+    "stylelint-config-recess-order"
+  ],
+  "rules": {
+    "scss/at-rule-no-unknown": null,
+    "scss/at-mixin-pattern": null,
+    "scss/at-function-pattern": null,
+    "scss/operator-no-unspaced": null,
+    "no-descending-specificity": null,
+    "color-hex-length": "long",
+    "selector-class-pattern": null,
+    "selector-pseudo-element-no-unknown": null,
+    "prettier/prettier": true
+  },
+  "ignoreFiles": ["node_modules/", "assets/css/base/_destyle.scss"]
+}
