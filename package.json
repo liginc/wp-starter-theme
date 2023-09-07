@@ -11,7 +11,7 @@
     "wp:env": "wp-env",
     "wp:start": "npm run wp:env start",
     "wp:restart": "npm run wp:env start --update",
-    "wp:setup": "npm run wp:start && npm run db:import",
+    "wp:setup": "npm run wp:start && npm run db:import && npm run wp:env run cli 'wp rewrite flush --hard'",
     "wp:destroy": "npm run wp:env destroy",
     "lint:check": "npm run lint:style && npm run lint:es",
     "lint:style": "stylelint 'assets/**/*.{css,scss}'",

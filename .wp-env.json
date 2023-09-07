@@ -18,7 +18,8 @@
   },
   "mappings": {
     "sql": "./sql",
-    "wp-content/uploads": "./uploads"
+    "wp-content/uploads": "./uploads",
+    "wp-cli.local.yml": "./wp-cli.local.yml"
   },
   "config": {
     "WP_DEBUG": false
