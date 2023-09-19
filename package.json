@@ -4,7 +4,7 @@
   "description": "wordpress starter theme by wp-env & vite",
   "scripts": {
     "dev": "cross-env NODE_ENV=development vite",
-    "build": "cross-env NODE_ENV=production vite build",
+    "build": "cross-env NODE_ENV=production vite build && node './imagemin-webp.js'",
     "preview": "vite preview",
     "db:import": "gzip -d sql/wpenv.sql.gz | npm run wp:env run cli wp db import sql/wpenv.sql",
     "db:export": "npm run wp:env run cli wp db export sql/wpenv.sql; gzip -f sql/wpenv.sql",
