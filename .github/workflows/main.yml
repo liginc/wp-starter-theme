@@ -11,6 +11,6 @@ jobs:
     env:
       SLACK_USERNAME: rtBot (GitHub Actions)
       SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL }}
-      SLACK_TITLE: masterが更新されました🎉
+      SLACK_TITLE: masterに反映されました🎉
       SLACK_COLOR: good
       SLACK_MESSAGE: "テスト"
