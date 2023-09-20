@@ -16,4 +16,5 @@ jobs:
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL }}
           SLACK_TITLE: masterに反映されました🎉
           SLACK_COLOR: good
-          SLACK_MESSAGE: "テスト"
+          SLACK_MESSAGE: <${{ github.event.pull_request.html_url }}|${{ github.event.pull_request.title }}>
+          MSG_MINIMAL: true
