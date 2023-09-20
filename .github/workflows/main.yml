@@ -5,13 +5,15 @@ on:
     branches: [main]
 
 jobs:
-  # slack notification
-  steps:
-    - name: Slack Notification on Failure
-      uses: rtCamp/action-slack-notify@v2.2.0
-      env:
-        SLACK_USERNAME: rtBot (GitHub Actions)
-        SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL }}
-        SLACK_TITLE: masterに反映されました🎉
-        SLACK_COLOR: good
-        SLACK_MESSAGE: "テスト"
+  build:
+    runs-on: ubuntu-latest
+    # slack notification
+    steps:
+      - uses: rtCamp/action-slack-notify@v2.2.0
+      - name: Slack Notification on Failure
+        env:
+          SLACK_USERNAME: rtBot (GitHub Actions)
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL }}
+          SLACK_TITLE: masterに反映されました🎉
+          SLACK_COLOR: good
+          SLACK_MESSAGE: "テスト"
