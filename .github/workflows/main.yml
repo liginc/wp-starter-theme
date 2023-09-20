@@ -9,8 +9,8 @@ jobs:
     runs-on: ubuntu-latest
     # slack notification
     steps:
-      - uses: rtCamp/action-slack-notify@v2.2.0
       - name: Slack Notification on Failure
+        uses: rtCamp/action-slack-notify@v2.2.0
         env:
           SLACK_USERNAME: rtBot (GitHub Actions)
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL }}
