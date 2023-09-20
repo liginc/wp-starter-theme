@@ -1,0 +1,16 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  # slack notification
+  - name: Slack Notification on Failure
+    uses: rtCamp/action-slack-notify@v2.2.0
+    env:
+      SLACK_USERNAME: rtBot (GitHub Actions)
+      SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL }}
+      SLACK_TITLE: masterが更新されました🎉
+      SLACK_COLOR: good
+      SLACK_MESSAGE: "テスト"
