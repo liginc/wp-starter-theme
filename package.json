@@ -6,7 +6,7 @@
     "dev": "cross-env NODE_ENV=development vite",
     "build": "cross-env NODE_ENV=production vite build",
     "preview": "vite preview",
-    "db:import": "gzip -d sql/wpenv.sql.gz | npm run wp:env run cli wp db import sql/wpenv.sql",
+    "db:import": "gzip -dfk sql/wpenv.sql.gz && npm run wp:env run cli wp db import sql/wpenv.sql && rm -f sql/wpenv.sql",
     "db:export": "npm run wp:env run cli wp db export sql/wpenv.sql; gzip -f sql/wpenv.sql",
     "wp:env": "wp-env",
     "wp:start": "npm run wp:env start",
