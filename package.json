@@ -6,7 +6,7 @@
     "dev": "cross-env NODE_ENV=development vite",
     "build": "cross-env NODE_ENV=production vite build && node './imagemin-webp.js'",
     "preview": "vite preview",
-    "db:import": "gzip -d sql/wpenv.sql.gz | npm run wp:env run cli wp db import sql/wpenv.sql",
+    "db:import": "gzip -dfk sql/wpenv.sql.gz && npm run wp:env run cli wp db import sql/wpenv.sql && rm -f sql/wpenv.sql",
     "db:export": "npm run wp:env run cli wp db export sql/wpenv.sql; gzip -f sql/wpenv.sql",
     "wp:env": "wp-env",
     "wp:start": "npm run wp:env start",
@@ -14,10 +14,10 @@
     "wp:setup": "npm run wp:start && npm run db:import",
     "wp:destroy": "npm run wp:env destroy",
     "lint:check": "npm run lint:style && npm run lint:es",
-    "lint:style": "stylelint 'assets/**/*.{css,scss}'",
-    "lint:es": "eslint 'assets/**/*.js'",
-    "lint:fix": "stylelint --fix 'assets/**/*.{css,scss}' && eslint --fix 'assets/**/*.js'",
-    "format": "prettier --write 'assets/**/*.{html,css,scss,js,json}'",
+    "lint:style": "stylelint 'src/assets/**/*.{css,scss}'",
+    "lint:es": "eslint 'src/assets/**/*.js'",
+    "lint:fix": "stylelint --fix 'src/assets/**/*.{css,scss}' && eslint --fix 'src/assets/**/*.js'",
+    "format": "prettier --write 'src/assets/**/*.{html,css,scss,js,json}'",
     "prepare": "husky install"
   },
   "lint-staged": {
