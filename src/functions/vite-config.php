@@ -54,6 +54,8 @@ function vite_src_images($name)
     return VITE_SERVER . '/src/assets/images/' . $name;
   } else if (IS_TYPE === 'production') {
     // production mode
+    // 拡張子が.jpg/.jpeg/.pngだった場合は.webpに置換
+    $name = preg_replace('/\.(jpg|jpeg|png)/', '.webp', $name);
     return URL_IMAGES . $name;
   }
 }
