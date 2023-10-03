@@ -2,7 +2,6 @@ import path from "path";
 import { defineConfig } from "vite";
 import { viteStaticCopy } from "vite-plugin-static-copy";
 import { liveReload } from "vite-plugin-live-reload";
-import imageminPlugin from "vite-plugin-imagemin";
 import sassGlobImports from "vite-plugin-sass-glob-import";
 import svgSpritePlugin from "vite-plugin-svg-sprite-component";
 
@@ -20,22 +19,6 @@ export default defineConfig({
           dest: "",
         },
       ],
-    }),
-    imageminPlugin({
-      gifsicle: {
-        optimizationLevel: 7,
-        interlaced: false,
-      },
-      optipng: {
-        optimizationLevel: 7,
-      },
-      mozjpeg: {
-        quality: 80,
-      },
-      pngquant: {
-        quality: [0.8, 0.9],
-        speed: 4,
-      },
     }),
     sassGlobImports(),
     svgSpritePlugin(),
