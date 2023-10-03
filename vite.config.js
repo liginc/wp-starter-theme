@@ -16,7 +16,7 @@ export default defineConfig({
           dest: "assets/static",
         },
         {
-          src: path.resolve(__dirname + `/theme/*`),
+          src: [path.resolve(__dirname + `/src/` + `[!assets/*]*`)],
           dest: "",
         },
       ],
@@ -48,7 +48,7 @@ export default defineConfig({
     target: "es2018",
     rollupOptions: {
       input: {
-        app: path.resolve(__dirname + `/assets/app.js`),
+        app: path.resolve(__dirname + `/src/assets/app.js`),
       },
       output: {
         entryFileNames: `assets/js/[name].js`,
