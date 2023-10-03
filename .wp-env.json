@@ -9,7 +9,7 @@
     "https://downloads.wordpress.org/plugin/webp-converter-for-media.5.9.1.zip",
     "https://downloads.wordpress.org/plugin/duplicate-post.4.5.zip"
   ],
-  "themes": ["./dist/"],
+  "themes": ["./src/"],
   "port": 8000,
   "env": {
     "tests": {
