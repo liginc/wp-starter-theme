@@ -7,7 +7,7 @@ function vite_src_js($name)
 {
   if (IS_TYPE === 'local') {
     // develop mode
-    return VITE_SERVER . '/assets/' . $name;
+    return VITE_SERVER . '/src/assets/' . $name;
   } else if (IS_TYPE === 'production') {
     // production mode
     return URL_JS . $name;
@@ -21,7 +21,7 @@ function vite_src_css($name)
 {
   if (IS_TYPE === 'local') {
     // develop mode
-    return VITE_SERVER . '/assets/css/' . $name;
+    return VITE_SERVER . '/src/assets/css/' . $name;
   } else if (IS_TYPE === 'production') {
     // production mode
     // .scssを.cssに置換
@@ -37,7 +37,7 @@ function vite_src_static($name)
 {
   if (IS_TYPE === 'local') {
     // develop mode
-    return VITE_SERVER . '/assets/static/' . $name;
+    return VITE_SERVER . '/src/assets/static/' . $name;
   } else if (IS_TYPE === 'production') {
     // production mode
     return URL_STATIC . $name;
@@ -51,7 +51,7 @@ function vite_src_images($name)
 {
   if (IS_TYPE === 'local') {
     // develop mode
-    return VITE_SERVER . '/assets/images/' . $name;
+    return VITE_SERVER . '/src/assets/images/' . $name;
   } else if (IS_TYPE === 'production') {
     // production mode
     return URL_IMAGES . $name;
