@@ -10,7 +10,7 @@ function vite_src_js($name)
     return VITE_SERVER . '/src/assets/' . $name;
   } else if (IS_TYPE === 'production') {
     // production mode
-    return URL_JS . $name;
+    return URL_JS . $name . '?ver=' . date("His");
   }
 }
 
@@ -26,7 +26,7 @@ function vite_src_css($name)
     // production mode
     // .scssを.cssに置換
     $name = str_replace('.scss', '.css', $name);
-    return URL_CSS . $name;
+    return URL_CSS . $name . '?ver=' . date("His");
   }
 }
 
@@ -40,7 +40,7 @@ function vite_src_static($name)
     return VITE_SERVER . '/src/assets/static/' . $name;
   } else if (IS_TYPE === 'production') {
     // production mode
-    return URL_STATIC . $name;
+    return URL_STATIC . $name . '?ver=' . date("His");
   }
 }
 
@@ -56,6 +56,6 @@ function vite_src_images($name)
     // production mode
     // 拡張子が.jpg/.jpeg/.pngだった場合は.webpに置換
     $name = preg_replace('/\.(jpg|jpeg|png)/', '.webp', $name);
-    return URL_IMAGES . $name;
+    return URL_IMAGES . $name . '?ver=' . date("His");
   }
 }
