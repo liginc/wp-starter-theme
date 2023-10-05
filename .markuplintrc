@@ -1,0 +1,41 @@
+{
+  "parser": {
+    ".php$": "@markuplint/php-parser"
+  },
+  "rules": {
+    "case-sensitive-tag-name": false,
+    "deprecated-attr": true,
+    "attr-value-quotes": false,
+    "landmark-roles": false,
+    "no-empty-palpable-content": false,
+    "label-has-control": false,
+    "ineffective-attr": false,
+    "class-naming": false,
+    "no-default-value": false,
+    "disallowed-element": true,
+    "case-sensitive-attr-name": false,
+    "end-tag": false,
+    "invalid-attr": true,
+    "character-reference": false,
+    "id-duplication": true,
+    "doctype": "always",
+    "attr-duplication": true,
+    "placeholder-label-option": true,
+    "permitted-contents": true,
+    "no-hard-code-id": false,
+    "no-boolean-attr-value": false,
+    "required-h1": true,
+    "required-element": true,
+    "no-refer-to-non-existent-id": false,
+    "required-attr": true,
+    "require-datetime": true,
+    "require-accessible-name": false,
+    "no-use-event-handler-attr": false,
+    "use-list": false,
+    "wai-aria": true,
+    "deprecated-element": true
+  },
+  "excludeFiles": [
+    "src/header.php"
+  ]
+}
