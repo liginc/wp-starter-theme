@@ -1,11 +1,11 @@
 <?php
-get_header();
+get_template_part('./parts/global-header');
 ?>
 
 <div class="privacy">
   <div class="privacy__bg">
     <div class="container">
-      <?php get_template_part('./components/heading-page', null, [
+      <?php get_template_part('./parts/heading-page', null, [
         'title' => 'PRIVACY POLICY',
       ]) ?>
       <div class="privacy__inner">
@@ -37,5 +37,5 @@ get_header();
 </div>
 
 <?php
-get_footer();
+get_template_part('./parts/global-footer');
 ?>

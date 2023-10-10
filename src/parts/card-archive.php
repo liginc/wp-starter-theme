@@ -15,7 +15,7 @@ $images = $args['images'] ?? []; // array
       <?php endif; ?>
     </p>
     <div class="card-archive__category">
-      <?php get_template_part('./components/label-category', null, [
+      <?php get_template_part('./parts/label-category', null, [
         'slug' => $categorys['slug'],
         'name' => $categorys['name'],
       ]) ?>

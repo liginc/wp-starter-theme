@@ -1,5 +1,5 @@
 <?php
-get_header();
+get_template_part('./parts/global-header');
 
 // ページネーション
 $pagination_range = 1;
@@ -10,7 +10,7 @@ $pagination = get_pagination($pagination_range, $pagination_add_first_and_last);
 <div class="archive">
   <div class="archive__bg">
     <div class="container">
-      <?php get_template_part('./components/heading-page', null, [
+      <?php get_template_part('./parts/heading-page', null, [
         'title' => 'ARCHIVE',
       ]) ?>
       <div class="about__inner">
@@ -34,7 +34,7 @@ $pagination = get_pagination($pagination_range, $pagination_add_first_and_last);
               ];
             ?>
               <li>
-                <?php get_template_part('./components/card-archive', null, [
+                <?php get_template_part('./parts/card-archive', null, [
                   'title' => $title,
                   'categorys' => $categorys,
                   'href' => $href,
@@ -45,7 +45,7 @@ $pagination = get_pagination($pagination_range, $pagination_add_first_and_last);
           </ul>
         <?php endif; ?>
         <div class="archive__pagination">
-          <?php get_template_part('./components/pagination', null, [
+          <?php get_template_part('./parts/pagination', null, [
             'pagination' => $pagination,
           ]) ?>
         </div>
@@ -55,5 +55,5 @@ $pagination = get_pagination($pagination_range, $pagination_add_first_and_last);
 </div>
 
 <?php
-get_footer();
+get_template_part('./parts/global-footer');
 ?>

@@ -1,11 +1,11 @@
 <?php
-get_header();
+get_template_part('./parts/global-header');
 ?>
 
 <div class="about">
   <div class="about__bg">
     <div class="container">
-      <?php get_template_part('./components/heading-page', null, [
+      <?php get_template_part('./parts/heading-page', null, [
         'title' => 'ABOUT',
       ]) ?>
       <div class="about__inner">
@@ -24,5 +24,5 @@ get_header();
 </div>
 
 <?php
-get_footer();
+get_template_part('./parts/global-footer');
 ?>

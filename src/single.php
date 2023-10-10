@@ -1,5 +1,5 @@
 <?php
-get_header();
+get_template_part('./parts/global-header');
 
 $id = get_the_ID();
 $title = get_the_title();
@@ -15,7 +15,7 @@ $images = [
 <div class="single">
   <div class="single__bg">
     <div class="container">
-      <?php get_template_part('./components/heading-page', null, [
+      <?php get_template_part('./parts/heading-page', null, [
         'title' => 'SINGLE',
       ]) ?>
       <div class="single__inner">
@@ -38,5 +38,5 @@ $images = [
 </div>
 
 <?php
-get_footer();
+get_template_part('./parts/global-footer');
 ?>
