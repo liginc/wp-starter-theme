@@ -1,5 +1,5 @@
 <?php
-get_header();
+get_template_part('./parts/global-header');
 ?>
 
 <div class="index">
@@ -17,7 +17,7 @@ get_header();
         <li class="index__anchor__item"><a href="#two-column-two" class="js-anchor-link">・2カラムの2番目</a></li>
         <li class="index__anchor__item"><a href="#top" class="js-anchor-link">・ページトップ</a></li>
       </ul>
-      <div id="two-column-one" class="index__column">
+      <div id="two-column-one" class="index__column ">
         <div class="index__column__img">
           <img src="<?= vite_src_images('sample-02.jpg') ?>" width="600" height="400" decoding="async" alt="">
         </div>
@@ -60,5 +60,5 @@ get_header();
 </div>
 
 <?php
-get_footer();
+get_template_part('./parts/global-footer');
 ?>

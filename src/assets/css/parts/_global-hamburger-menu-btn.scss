@@ -12,7 +12,8 @@
   width: 100%;
   height: 2px;
   background-color: $color-white;
-  transition: transform $duration-base $easing-transform,
+  transition:
+    transform $duration-base $easing-transform,
     opacity $duration-base $easing-material;
 }
 

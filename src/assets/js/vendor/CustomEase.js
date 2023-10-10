@@ -99,7 +99,7 @@ var gsap,
     y4,
     threshold,
     points,
-    index
+    index,
   ) {
     var x12 = (x1 + x2) / 2,
       y12 = (y1 + y2) / 2,
@@ -152,7 +152,7 @@ var gsap,
         y1234,
         threshold,
         points,
-        index
+        index,
       );
 
       _bezierToPoints(
@@ -166,7 +166,7 @@ var gsap,
         y4,
         threshold,
         points,
-        index + 1 + (points.length - length)
+        index + 1 + (points.length - length),
       );
     }
 
@@ -247,7 +247,7 @@ export var CustomEase = /*#__PURE__*/ (function () {
         a2.y,
         1 / (precision * 200000),
         points,
-        points.length - 1
+        points.length - 1,
       );
     }
 
@@ -274,7 +274,7 @@ export var CustomEase = /*#__PURE__*/ (function () {
           fast &&
           i > 1 &&
           Math.abs(
-            prevPoint.cy / prevPoint.cx - points[i - 2].cy / points[i - 2].cx
+            prevPoint.cy / prevPoint.cx - points[i - 2].cy / points[i - 2].cx,
           ) > 2
         ) {
           //if there's a sudden change in direction, prioritize accuracy over speed. Like a bounce ease - you don't want to risk the sampling chunks landing on each side of the bounce anchor and having it clipped off.
@@ -412,7 +412,7 @@ export var CustomEase = /*#__PURE__*/ (function () {
 
     if (ease instanceof CustomEase) {
       a = rawPathToString(
-        transformRawPath([ease.segment], width, 0, 0, -height, x, y)
+        transformRawPath([ease.segment], width, 0, 0, -height, x, y),
       );
     } else {
       a = [x, y];

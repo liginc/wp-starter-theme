@@ -1,5 +1,4 @@
 {
   "arrowParens": "always",
-  "printWidth": 400,
-  "parser": "none"
+  "printWidth": 400
 }

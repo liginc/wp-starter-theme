@@ -6,11 +6,8 @@
 @import "./base/global";
 @import "./base/editor";
 
-// コンポーネントスタイルを読み込む
-@import "./components/**/*";
-
-// // パーシャルスタイルを読み込む
-@import "./partials/**/*";
+// パーツを読み込む
+@import "./parts/**/*";
 
 // // ページスタイルを読み込む
 @import "./pages/**/*";
