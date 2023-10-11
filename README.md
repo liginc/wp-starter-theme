@@ -1,5 +1,12 @@
 # wp-starter-theme
 
+## 🛜 WP Environment
+
+WP always gets the latest version. Edit `.wp-env.json` to fix the version at the start of the project.
+
+- WP ver latest
+- PHP ver 8.1
+
 ## 🐶 Usage Environment
 
 - [Docker Desktop](https://hub.docker.com/editions/community/docker-ce-desktop-mac/)
