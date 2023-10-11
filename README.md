@@ -103,6 +103,17 @@ vscode save lint check must plugins
 - [stylelint](https://marketplace.visualstudio.com/items?itemName=stylelint.vscode-stylelint)
 - [eslint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
 
+## 🚗 CI/CD (Bitbucket Pipelines)
+
+Repository settings SSH KEY registration<br>
+`bitbucket-pipelines.yml` Register a value
+
+- $SSH_USER
+- $SSH_SERVER
+- $SSH_REMOTE_PATH
+- $SSH_LOCAL_PATH
+- $SSH_PORT
+
 ## 👀 Document
 
 - [wp-env](https://ja.wordpress.org/team/handbook/block-editor/reference-guides/packages/packages-env/)
