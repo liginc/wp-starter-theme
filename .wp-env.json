@@ -2,12 +2,12 @@
   "core": "https://ja.wordpress.org/latest-ja.zip",
   "phpVersion": "8.1",
   "plugins": [
-    "https://downloads.wordpress.org/plugin/all-in-one-wp-migration.7.75.zip",
-    "https://downloads.wordpress.org/plugin/wordpress-seo.19.3.zip",
-    "https://downloads.wordpress.org/plugin/query-monitor.3.7.1.zip",
-    "https://downloads.wordpress.org/plugin/wp-multibyte-patch.2.9.zip",
-    "https://downloads.wordpress.org/plugin/webp-converter-for-media.5.9.1.zip",
-    "https://downloads.wordpress.org/plugin/duplicate-post.4.5.zip"
+    "https://downloads.wordpress.org/plugin/all-in-one-wp-migration.zip",
+    "https://downloads.wordpress.org/plugin/wordpress-seo.zip",
+    "https://downloads.wordpress.org/plugin/query-monitor.zip",
+    "https://downloads.wordpress.org/plugin/wp-multibyte-patch.zip",
+    "https://downloads.wordpress.org/plugin/webp-converter-for-media.zip",
+    "https://downloads.wordpress.org/plugin/duplicate-post.zip"
   ],
   "themes": ["./src/"],
   "port": 8000,
@@ -19,10 +19,11 @@
   "mappings": {
     "sql": "./sql",
     "wp-content/uploads": "./uploads",
-    "wp-cli.local.yml": "./wp-cli.local.yml"
+    "wp-cli.local.yml": "./wp-cli.local.yml",
+    "php.ini": "./php.ini"
   },
   "config": {
-    "WP_DEBUG": false,
+    "WP_DEBUG": true,
     "AUTOMATIC_UPDATER_DISABLED": true
   }
 }
