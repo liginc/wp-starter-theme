@@ -22,6 +22,6 @@
         <li><a href="<?= URL_CONTACT ?>" target="_blank" rel="noopener noreferrer">CONTACT</a></li>
       </ul>
     </nav>
-    <?php get_template_part('./partials/global-hamburger-menu-btn') ?>
-    <?php get_template_part('./partials/global-hamburger-menu') ?>
+    <?php get_template_part('./parts/global-hamburger-menu-btn') ?>
+    <?php get_template_part('./parts/global-hamburger-menu') ?>
   </header>
