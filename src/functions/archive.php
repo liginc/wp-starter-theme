@@ -1,5 +1,6 @@
 <?php
 
+// アーカイブページのURLを変更
 function post_has_archive($args, $post_type)
 {
   if ('post' == $post_type) {

@@ -51,6 +51,21 @@ npm run build
 
 upload all files under dist
 
+## 😺 Grid System
+
+It is designed by a 60-division grid system.<br>
+Auxiliary functions are already in place to facilitate styling.
+
+- Pressing the D key toggles between showing and hiding the gridlines.
+- Gridlines are only displayed in development mode.
+
+## 😻 Styling
+
+- BEM is basically adopted for class naming.
+- `rem` Used for calculations based on grid lines.
+- `px` Used when calculating top and bottom margins, mainly `margin-top` and `margin-bottom`.
+- `vw` Other text, mainly used when calculating `font-size`. A `mixin` is provided for easier calculation.
+
 ## 🌙 How to reference images from Css
 
 $base-dir is paths change between local and production environments.
@@ -103,9 +118,9 @@ vscode save lint check must plugins
 - [stylelint](https://marketplace.visualstudio.com/items?itemName=stylelint.vscode-stylelint)
 - [eslint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
 
-## 🚗 CI/CD (Bitbucket Pipelines)
+## 🚗 CI/CD Bitbucket Pipelines
 
-Repository settings SSH KEY registration<br>
+Repository settings ssh key registration<br>
 `bitbucket-pipelines.yml` Register a value
 
 - $SSH_USER
@@ -113,6 +128,13 @@ Repository settings SSH KEY registration<br>
 - $SSH_REMOTE_PATH
 - $SSH_LOCAL_PATH
 - $SSH_PORT
+
+## 👉 Git Flow
+
+Implement CI/CD so that merging into the main branch will trigger the auto-deploy process.
+
+- main: test site
+- feature: For adding functions; branch off from main and merge into main as appropriate.
 
 ## 👀 Document
 
