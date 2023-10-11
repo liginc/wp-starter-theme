@@ -1,0 +1,2 @@
+# Required to operate .htaccess file via wp-cli.
+apache_modules: mod_rewrite
