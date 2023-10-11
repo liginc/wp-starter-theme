@@ -10,7 +10,7 @@ import svgSpritePlugin from "vite-plugin-svg-sprite-component";
 const srcDirectoryContents = fs.readdirSync(path.resolve(__dirname, "src"));
 // assetsフォルダ以外のファイルとディレクトリを抽出
 const nonAssetsContents = srcDirectoryContents.filter(
-  (item) => item !== "assets"
+  (item) => item !== "assets",
 );
 
 export default defineConfig({
@@ -43,6 +43,7 @@ export default defineConfig({
     rollupOptions: {
       input: {
         app: path.resolve(__dirname + `/src/assets/app.js`),
+        index: path.resolve(__dirname + `/src/assets/front-page.js`),
       },
       output: {
         entryFileNames: `assets/js/[name].js`,
