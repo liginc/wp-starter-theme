@@ -5,7 +5,6 @@ get_template_part('./parts/global-header');
 <div class="index">
   <div class="index__bg">
     <div class="container">
-      <?= get_svg_sprite('icon-arrow-next') ?>
       <h1 class="index__logo">
         <img src="<?= vite_src_images('logo.svg') ?>" width="58" height="48" decoding="async" alt="LIG" class="w-full">
       </h1>

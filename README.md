@@ -110,8 +110,7 @@ lint fix
 npm run lint:fix
 ```
 
-lint check timing vscode save & pre-commit<br>
-vscode save lint check must plugins
+lint check timing vscode save & pre-commit vscode save lint check must plugins
 
 - [prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
 - [markuplint](https://marketplace.visualstudio.com/items?itemName=yusukehirao.vscode-markuplint)
@@ -120,8 +119,7 @@ vscode save lint check must plugins
 
 ## 🚗 CI/CD Bitbucket Pipelines
 
-Repository settings ssh key registration<br>
-`bitbucket-pipelines.yml` Register a value
+Repository settings ssh key registration `bitbucket-pipelines.yml` Register a value
 
 - $SSH_USER
 - $SSH_SERVER
