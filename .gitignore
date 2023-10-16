@@ -25,3 +25,7 @@ dist-ssr
 *.local
 
 sql/wpenv.sql
+plugins/*
+!plugins/.gitkeep
+!plugins/advanced-custom-fields-pro
+!plugins/all-in-one-wp-migration-unlimited-extension
