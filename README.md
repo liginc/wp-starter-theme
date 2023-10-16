@@ -7,6 +7,13 @@ WP always gets the latest version. Edit `.wp-env.json` to fix the version at the
 - WP ver latest
 - PHP ver 8.1
 
+## 💰 Paid Plugins
+
+Please download the paid plugins from the link below and install it under the `/plugins`. Git manage this.
+
+- [advanced-custom-fields-pro](https://bitbucket.org/lig-admin/lig-wordpress-plugins/src/master/admin-columns-pro/)
+- [all-in-one-wp-migration-unlimited-extension](https://bitbucket.org/lig-admin/lig-wordpress-plugins/src/master/all-in-one-wp-migration-unlimited-extension/)
+
 ## 🐶 Usage Environment
 
 - [Docker Desktop](https://hub.docker.com/editions/community/docker-ce-desktop-mac/)
