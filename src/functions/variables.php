@@ -16,7 +16,7 @@ define('URL_TOUCH_ICON', URL_STATIC . 'apple-touch-icon.png');
 // url
 define('URL_HOME', home_url('/'));
 define('URL_ABOUT', URL_HOME . 'about/');
-define('URL_ARCHIVE', URL_HOME . 'archive/');
+define('URL_ARCHIVE', URL_HOME . 'works/');
 define('URL_PRIVACY', URL_HOME . 'privacy/');
 
 // external url

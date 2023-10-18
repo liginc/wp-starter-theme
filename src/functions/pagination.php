@@ -1,11 +1,16 @@
 <?php
+
+/**
+ * ページネーション
+ */
+
 function get_pagination(int $range, bool $add_first_and_last = false)
 {
   global $paged, $wp_query;
   $pages = (int)$wp_query->max_num_pages;
   $paged = (empty($paged)) ? 1 : (int)$paged;
 
-  if ($pages <= 1) return;
+  if ($pages <= 0) return;
 
   $prev = ($paged !== 1) ? $paged - 1 : false;
   $next = ($paged !== $pages) ? $paged + 1 : false;

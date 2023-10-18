@@ -1,6 +1,10 @@
 <?php
 
 /**
+ * utility functions
+ */
+
+/**
  * @return SVGスプライトを返す
  */
 function get_svg_sprite($name)

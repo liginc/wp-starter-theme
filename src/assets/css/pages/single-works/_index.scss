@@ -1,21 +1,21 @@
-.single {
+.single-works {
   position: relative;
 }
 
-.single__bg {
+.single-works__bg {
   padding: 140px 0 0;
 }
 
-.single__inner {
+.single-works__inner {
   margin: 120px 0 0;
 }
 
-.single__title {
+.single-works__title {
   font-size: vw(52);
   font-weight: bold;
 }
 
-.single__thumbnail {
+.single-works__thumbnail {
   width: 100%;
   height: vw(600);
   margin: 32px 0 0;
@@ -27,6 +27,6 @@
   }
 }
 
-.single__content {
+.single-works__content {
   margin: 52px 0 0;
 }

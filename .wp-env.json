@@ -8,7 +8,9 @@
     "https://downloads.wordpress.org/plugin/wp-multibyte-patch.zip",
     "https://downloads.wordpress.org/plugin/webp-converter-for-media.zip",
     "https://downloads.wordpress.org/plugin/duplicate-post.zip",
-    "https://downloads.wordpress.org/plugin/all-in-one-wp-security-and-firewall.zip"
+    "https://downloads.wordpress.org/plugin/all-in-one-wp-security-and-firewall.zip",
+    "https://downloads.wordpress.org/plugin/autoptimize.zip",
+    "https://downloads.wordpress.org/plugin/custom-post-type-ui.zip"
   ],
   "themes": ["./src/"],
   "port": 8000,

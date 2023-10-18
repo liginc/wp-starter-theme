@@ -12,22 +12,22 @@ $images = [
 ];
 ?>
 
-<div class="single">
-  <div class="single__bg">
+<div class="single-works">
+  <div class="single-works__bg">
     <div class="container">
       <?php get_template_part('./parts/heading-page', null, [
         'title' => 'SINGLE',
       ]) ?>
-      <div class="single__inner">
-        <h2 class="single__title"><?= $title ?></h2>
-        <p class="single__thumbnail">
+      <div class="single-works__inner">
+        <h2 class="single-works__title"><?= $title ?></h2>
+        <p class="single-works__thumbnail">
           <?php if ($images['src']) : ?>
             <img src="<?= $images['src'] ?>" width="600" height="400" decoding="async" alt="<?= $images['alt'] ?>">
           <?php else : ?>
             <img src="<?= vite_src_images('noimage.jpg') ?>" width="800" height="560" decoding="async" alt="">
           <?php endif; ?>
         </p>
-        <div class="single__content">
+        <div class="single-works__content">
           <div class="editor">
             <?php the_content(); ?>
           </div>
