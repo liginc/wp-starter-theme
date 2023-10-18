@@ -2,14 +2,17 @@
 
 ## 🛜 WP Environment
 
-WP always gets the latest version. Edit `.wp-env.json` to fix the version at the start of the project.
+本テンプレートはWordPressのアップデートが常に行われていくこと、運用がLIG以外になる可能性を考慮して互換性に特化したものになっています。<br>
+そのため`functions`のカスタムは最小限に留めて、必要な機能はプラグインに任せます。
+
+WordPressは常に最新のバージョンを取得します。プロジェクト開始時に `.wp-env.json` を編集してバージョンを固定してください。
 
 - WP ver latest
 - PHP ver 8.1
 
 ## 💰 Paid Plugins
 
-Please download the paid plugins from the link below and install it under the `/plugins`. Git manage this.
+有料プラグインについては下記のリンクからダウンロードをして `/plugins`配下に設置してください。Gitで管理されます。
 
 - [advanced-custom-fields-pro](https://bitbucket.org/lig-admin/lig-wordpress-plugins/src/master/admin-columns-pro/)
 - [all-in-one-wp-migration-unlimited-extension](https://bitbucket.org/lig-admin/lig-wordpress-plugins/src/master/all-in-one-wp-migration-unlimited-extension/)
@@ -56,26 +59,27 @@ password : password
 npm run build
 ```
 
-upload all files under dist
+アップロードの際は`/dist`以下をアップロードしてください。
 
 ## 😺 Grid System
 
-It is designed by a 60-division grid system.<br>
-Auxiliary functions are already in place to facilitate styling.
+通常の案件では60分割のグリッドシステムによってデザインされています。<br>
+スタイリングがしやすいように補助的な役割を担う機能が既に用意されています。
 
-- Pressing the D key toggles between showing and hiding the gridlines.
-- Gridlines are only displayed in development mode.
+- D キー押下でグリッドラインの表示/非表示が切り替わります。
+- グリッドラインが表示されるのは開発モードの時のみです。
 
 ## 😻 Styling
 
-- BEM is basically adopted for class naming.
-- `rem` Used for calculations based on grid lines.
-- `px` Used when calculating top and bottom margins, mainly `margin-top` and `margin-bottom`.
-- `vw` Other text, mainly used when calculating `font-size`. A `mixin` is provided for easier calculation.
+クラスの命名については BEM を採用しています。
+
+- `rem` グリッド線に基づいて計算する時に使用します。
+- `px` 上下の余白、主に`margin-top`や`margin-bottom`の計算の時に使用します。
+- `vw` その他、テキスト、主に`font-size`の計算の時に使用します。計算しやすいように`mixin`が用意されているので、そちらを使用してください。
 
 ## 🌙 How to reference images from Css
 
-$base-dir is paths change between local and production environments.
+$base-dir は設定をするとCSSでローカルと本番で異なる参照をすることができます。
 
 ```bash
 background-image: url($base-dir + "assets/images/icon-blank.svg");
@@ -83,21 +87,15 @@ background-image: url($base-dir + "assets/images/icon-blank.svg");
 
 ## 🍰 IMAGE
 
-use images
-
 ```bash
 <img src="<?= vite_src_images('sample-01.jpg') ?>" decoding="async" width="1280" height="800" alt="">
 ```
 
 ## 😎 SVG
 
-use svg-sprite
-
 ```bash
 <?= get_svg_sprite('icon-blank') ?>
 ```
-
-use image svg
 
 ```bash
 <img src="<?= vite_src_images('icon-blank.svg') ?>" decoding="async" width="30" height="30" alt="">
@@ -105,28 +103,24 @@ use image svg
 
 ## ✋ Lint
 
-lint check
-
 ```bash
 npm run lint:check
 ```
-
-lint fix
 
 ```bash
 npm run lint:fix
 ```
 
-lint check timing vscode save & pre-commit vscode save lint check must plugins
+Lint はプリコミット時に必ず実行されます。以下の vscode プラグインをインストールすると vscode 保存時にも Lint が実行されます。
 
 - [prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
 - [markuplint](https://marketplace.visualstudio.com/items?itemName=yusukehirao.vscode-markuplint)
 - [stylelint](https://marketplace.visualstudio.com/items?itemName=stylelint.vscode-stylelint)
 - [eslint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
 
-## 🚗 CI/CD Bitbucket Pipelines
+## 🚗 Bitbucket Pipelines
 
-Repository settings ssh key registration `bitbucket-pipelines.yml` Register a value
+リポジトリの「設定」から SSH キーを登録して `bitbucket-pipelines.yml` の下記の値を登録してください。
 
 - $SSH_USER
 - $SSH_SERVER
@@ -136,10 +130,10 @@ Repository settings ssh key registration `bitbucket-pipelines.yml` Register a va
 
 ## 👉 Git Flow
 
-Implement CI/CD so that merging into the main branch will trigger the auto-deploy process.
+CI / CD が実装されている場合 main ブランチにマージすると自動デプロイの処理が実行されます。
 
-- main: test site
-- feature: For adding functions; branch off from main and merge into main as appropriate.
+- main: TBD
+- feature: 機能の追加用。main から分岐して、main に適宜マージしてください。
 
 ## 👀 Document
 

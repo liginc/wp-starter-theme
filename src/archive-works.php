@@ -7,16 +7,16 @@ $pagination_add_first_and_last = true;
 $pagination = get_pagination($pagination_range, $pagination_add_first_and_last);
 ?>
 
-<div class="archive">
-  <div class="archive__bg">
+<div class="archive-works">
+  <div class="archive-works__bg">
     <div class="container">
       <?php get_template_part('./parts/heading-page', null, [
         'title' => 'ARCHIVE',
       ]) ?>
-      <div class="about__inner">
+      <div class="about-works__inner">
         <!-- メインループ -->
         <?php if (have_posts()) : ?>
-          <ul class="archive__list">
+          <ul class="archive-works__list">
             <?php while (have_posts()) : the_post();
               $id = get_the_ID();
               $title = get_the_title();
@@ -44,7 +44,7 @@ $pagination = get_pagination($pagination_range, $pagination_add_first_and_last);
             <?php endwhile; ?>
           </ul>
         <?php endif; ?>
-        <div class="archive__pagination">
+        <div class="archive-works__pagination">
           <?php get_template_part('./parts/pagination', null, [
             'pagination' => $pagination,
           ]) ?>
