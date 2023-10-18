@@ -85,20 +85,23 @@ $base-dir は設定をするとCSSでローカルと本番で異なる参照を�
 background-image: url($base-dir + "assets/images/icon-blank.svg");
 ```
 
-## 🍰 IMAGE
+## 🍰 Assets
+
+ローカル環境ではVITEの開発サーバー、本番環境ではテーマのルートを参照する必要があるため<br>
+`vite-config.php`の関数を使用してAssetsにアクセスしてください。
 
 ```bash
 <img src="<?= vite_src_images('sample-01.jpg') ?>" decoding="async" width="1280" height="800" alt="">
 ```
 
-## 😎 SVG
+```bash
+<img src="<?= vite_src_images('icon-blank.svg') ?>" decoding="async" width="30" height="30" alt="">
+```
+
+## 😎 Svg Sprite
 
 ```bash
 <?= get_svg_sprite('icon-blank') ?>
-```
-
-```bash
-<img src="<?= vite_src_images('icon-blank.svg') ?>" decoding="async" width="30" height="30" alt="">
 ```
 
 ## ✋ Lint
