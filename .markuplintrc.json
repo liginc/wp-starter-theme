@@ -35,5 +35,5 @@
     "wai-aria": true,
     "deprecated-element": true
   },
-  "excludeFiles": ["src/parts/global-header.php"]
+  "excludeFiles": ["src/parts/global-header.php", "plugins/"]
 }
