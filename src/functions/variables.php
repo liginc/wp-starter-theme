@@ -26,7 +26,3 @@ define('URL_CONTACT', 'https://liginc.co.jp/contact');
 define('IS_TYPE', wp_get_environment_type());
 define('IS_TYPE_LOCAL', IS_TYPE === 'local' ? true : false);
 define('IS_TYPE_PRODUCTION', IS_TYPE === 'production' ? true : false);
-
-
-// ローカル環境のViteサーバーのURL
-define('VITE_SERVER', 'http://localhost:3000');

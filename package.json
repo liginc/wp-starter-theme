@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "wordpress starter theme by wp-env & vite",
   "scripts": {
-    "dev": "cross-env NODE_ENV=development vite",
+    "dev": "cross-env NODE_ENV=development vite --host",
     "build": "cross-env NODE_ENV=production vite build && npm run press:images",
     "preview": "vite preview",
     "press:images": "node convert.images.mjs -i src/assets/images -o dist/assets/images -w -v -z -t",
@@ -56,6 +56,7 @@
     "stylelint-prettier": "^4.0.2",
     "svgo": "^3.0.2",
     "vite": "^4.2.0",
+    "vite-plugin-browser-sync": "^1.0.6",
     "vite-plugin-live-reload": "^3.0.2",
     "vite-plugin-sass-glob-import": "^2.0.0",
     "vite-plugin-static-copy": "^0.14.0",
