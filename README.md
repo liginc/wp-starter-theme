@@ -42,15 +42,24 @@ npm run wp:setup
 npm run dev
 ```
 
-open <http://localhost:8000/>
+open <http://localhost:3030/>
 
 - wp login
 
-open <http://localhost:8000/wp-admin>
+open <http://localhost:3030/wp-admin>
 
 ```bash
 user : admin
 password : password
+```
+
+## 🏠 Browser Sync
+
+ネットワーク経由でのアクセスをする場合は`.wp-env.json`の`VITE_SERVER`の値を自身のローカルIPに変更してください。<br>
+こちらは暫定対応です。`.wp-env.json`はGit管理されているので、こちらの値を上書きしてコミットしないように注意してください。
+
+```bash
+"VITE_SERVER": "http://0.0.0.0:3000"
 ```
 
 ## 💻 Production Upload

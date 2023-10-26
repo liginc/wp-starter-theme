@@ -1,6 +1,7 @@
 import path from "path";
 import fs from "fs";
 import { defineConfig } from "vite";
+import VitePluginBrowserSync from "vite-plugin-browser-sync";
 import { viteStaticCopy } from "vite-plugin-static-copy";
 import { liveReload } from "vite-plugin-live-reload";
 import sassGlobImports from "vite-plugin-sass-glob-import";
@@ -33,6 +34,15 @@ export default defineConfig({
     }),
     sassGlobImports(),
     svgSpritePlugin(),
+    VitePluginBrowserSync({
+      bs: {
+        port: 3030,
+        proxy: "localhost:8000",
+        ui: {
+          port: 8080,
+        },
+      },
+    }),
   ],
   root: "",
   build: {
@@ -75,6 +85,7 @@ export default defineConfig({
     },
   },
   server: {
+    host: true,
     cors: true,
     strictPort: true,
     port: 3000,
