@@ -34,10 +34,7 @@ var _svgPathExp = /[achlmqstvz]|(-?\d*\.?\d*(?:e[\-+]?\d+)?)[0-9]/gi,
   _temp2 = {},
   _roundingNum = 1e5,
   _wrapProgress = function _wrapProgress(progress) {
-    return (
-      Math.round(((progress + _largeNum) % 1) * _roundingNum) / _roundingNum ||
-      (progress < 0 ? 0 : 1)
-    );
+    return Math.round(((progress + _largeNum) % 1) * _roundingNum) / _roundingNum || (progress < 0 ? 0 : 1);
   },
   //if progress lands on 1, the % will make it 0 which is why we || 1, but not if it's negative because it makes more sense for motion to end at 0 in that case.
   _round = function _round(value) {
@@ -86,11 +83,7 @@ var _svgPathExp = /[achlmqstvz]|(-?\d*\.?\d*(?:e[\-+]?\d+)?)[0-9]/gi,
       prevSeg = rawPath[index - 1] || [],
       l = prevSeg.length;
 
-    if (
-      index &&
-      segment[0] === prevSeg[l - 2] &&
-      segment[1] === prevSeg[l - 1]
-    ) {
+    if (index && segment[0] === prevSeg[l - 2] && segment[1] === prevSeg[l - 1]) {
       segment = prevSeg.concat(segment.slice(2));
       index--;
     }
@@ -107,10 +100,7 @@ var _svgPathExp = /[achlmqstvz]|(-?\d*\.?\d*(?:e[\-+]?\d+)?)[0-9]/gi,
 //accepts basic selector text, a path instance, a RawPath instance, or a Segment and returns a RawPath (makes it easy to homogenize things). If an element or selector text is passed in, it'll also cache the value so that if it's queried again, it'll just take the path data from there instead of parsing it all over again (as long as the path data itself hasn't changed - it'll check).
 
 export function getRawPath(value) {
-  value =
-    _isString(value) && _selectorExp.test(value)
-      ? document.querySelector(value) || value
-      : value;
+  value = _isString(value) && _selectorExp.test(value) ? document.querySelector(value) || value : value;
   var e = value.getAttribute ? value : 0,
     rawPath;
 
@@ -121,18 +111,10 @@ export function getRawPath(value) {
     }
 
     rawPath = e._gsPath[value];
-    return rawPath && !rawPath._dirty
-      ? rawPath
-      : (e._gsPath[value] = stringToRawPath(value));
+    return rawPath && !rawPath._dirty ? rawPath : (e._gsPath[value] = stringToRawPath(value));
   }
 
-  return !value
-    ? console.warn("Expecting a <path> element or an SVG path data string")
-    : _isString(value)
-    ? stringToRawPath(value)
-    : _isNumber(value[0])
-    ? [value]
-    : value;
+  return !value ? console.warn("Expecting a <path> element or an SVG path data string") : _isString(value) ? stringToRawPath(value) : _isNumber(value[0]) ? [value] : value;
 } //copies a RawPath WITHOUT the length meta data (for speed)
 
 export function copyRawPath(rawPath) {
@@ -224,10 +206,7 @@ export function convertToPath(element, swap) {
     return element;
   }
 
-  path = _createPath(
-    element,
-    "x,y,width,height,cx,cy,rx,ry,r,x1,x2,y1,y2,points",
-  );
+  path = _createPath(element, "x,y,width,height,cx,cy,rx,ry,r,x1,x2,y1,y2,points");
   attr = _attrToObj(element, _typeAttrs[type]);
 
   if (type === "rect") {
@@ -250,74 +229,9 @@ export function convertToPath(element, swap) {
       y4 = y3 + h;
       y5 = y4 + ry * circ;
       y6 = y4 + ry;
-      data =
-        "M" +
-        x6 +
-        "," +
-        y3 +
-        " V" +
-        y4 +
-        " C" +
-        [
-          x6,
-          y5,
-          x5,
-          y6,
-          x4,
-          y6,
-          x4 - (x4 - x3) / 3,
-          y6,
-          x3 + (x4 - x3) / 3,
-          y6,
-          x3,
-          y6,
-          x2,
-          y6,
-          x,
-          y5,
-          x,
-          y4,
-          x,
-          y4 - (y4 - y3) / 3,
-          x,
-          y3 + (y4 - y3) / 3,
-          x,
-          y3,
-          x,
-          y2,
-          x2,
-          y,
-          x3,
-          y,
-          x3 + (x4 - x3) / 3,
-          y,
-          x4 - (x4 - x3) / 3,
-          y,
-          x4,
-          y,
-          x5,
-          y,
-          x6,
-          y2,
-          x6,
-          y3,
-        ].join(",") +
-        "z";
+      data = "M" + x6 + "," + y3 + " V" + y4 + " C" + [x6, y5, x5, y6, x4, y6, x4 - (x4 - x3) / 3, y6, x3 + (x4 - x3) / 3, y6, x3, y6, x2, y6, x, y5, x, y4, x, y4 - (y4 - y3) / 3, x, y3 + (y4 - y3) / 3, x, y3, x, y2, x2, y, x3, y, x3 + (x4 - x3) / 3, y, x4 - (x4 - x3) / 3, y, x4, y, x5, y, x6, y2, x6, y3].join(",") + "z";
     } else {
-      data =
-        "M" +
-        (x + w) +
-        "," +
-        y +
-        " v" +
-        h +
-        " h" +
-        -w +
-        " v" +
-        -h +
-        " h" +
-        w +
-        "z";
+      data = "M" + (x + w) + "," + y + " v" + h + " h" + -w + " v" + -h + " h" + w + "z";
     }
   } else if (type === "circle" || type === "ellipse") {
     if (type === "circle") {
@@ -332,39 +246,7 @@ export function convertToPath(element, swap) {
     x = attr.cx;
     y = attr.cy;
     rcirc = r * circ;
-    data =
-      "M" +
-      (x + r) +
-      "," +
-      y +
-      " C" +
-      [
-        x + r,
-        y + rycirc,
-        x + rcirc,
-        y + ry,
-        x,
-        y + ry,
-        x - rcirc,
-        y + ry,
-        x - r,
-        y + rycirc,
-        x - r,
-        y,
-        x - r,
-        y - rycirc,
-        x - rcirc,
-        y - ry,
-        x,
-        y - ry,
-        x + rcirc,
-        y - ry,
-        x + r,
-        y - rycirc,
-        x + r,
-        y,
-      ].join(",") +
-      "z";
+    data = "M" + (x + r) + "," + y + " C" + [x + r, y + rycirc, x + rcirc, y + ry, x, y + ry, x - rcirc, y + ry, x - r, y + rycirc, x - r, y, x - r, y - rycirc, x - rcirc, y - ry, x, y - ry, x + rcirc, y - ry, x + r, y - rycirc, x + r, y].join(",") + "z";
   } else if (type === "line") {
     data = "M" + attr.x1 + "," + attr.y1 + " L" + attr.x2 + "," + attr.y2; //previously, we just converted to "Mx,y Lx,y" but Safari has bugs that cause that not to render properly when using a stroke-dasharray that's not fully visible! Using a cubic bezier fixes that issue.
   } else if (type === "polyline" || type === "polygon") {
@@ -378,10 +260,7 @@ export function convertToPath(element, swap) {
     }
   }
 
-  path.setAttribute(
-    "d",
-    rawPathToString((path._gsRawPath = stringToRawPath(data))),
-  );
+  path.setAttribute("d", rawPathToString((path._gsRawPath = stringToRawPath(data))));
 
   if (swap && element.parentNode) {
     element.parentNode.insertBefore(path, element);
@@ -392,10 +271,7 @@ export function convertToPath(element, swap) {
 } //returns the rotation (in degrees) at a particular progress on a rawPath (the slope of the tangent)
 
 export function getRotationAtProgress(rawPath, progress) {
-  var d = getProgressData(
-    rawPath,
-    progress >= 1 ? 1 - 1e-9 : progress ? progress : 1e-9,
-  );
+  var d = getProgressData(rawPath, progress >= 1 ? 1 - 1e-9 : progress ? progress : 1e-9);
   return getRotationAtBezierT(d.segment, d.i, d.t);
 }
 
@@ -414,9 +290,7 @@ function getRotationAtBezierT(segment, i, t) {
   a += (b - a) * t;
   b += (c - b) * t;
   a += (b - a) * t;
-  return _round(
-    _atan2(b + (c + (segment[i + 7] - c) * t - b) * t - a, x) * _RAD2DEG,
-  );
+  return _round(_atan2(b + (c + (segment[i + 7] - c) * t - b) * t - a, x) * _RAD2DEG);
 }
 
 export function sliceRawPath(rawPath, start, end) {
@@ -463,10 +337,7 @@ export function sliceRawPath(rawPath, start, end) {
     j;
 
   if (wrap || loops) {
-    wrapsBehind =
-      eSegIndex < sSegIndex ||
-      (sameSegment && ei < si) ||
-      (sameBezier && e.t < s.t);
+    wrapsBehind = eSegIndex < sSegIndex || (sameSegment && ei < si) || (sameBezier && e.t < s.t);
 
     if (_splitSegment(path, sSegIndex, si, s.t)) {
       sSegIndex++;
@@ -686,17 +557,7 @@ export function subdivideSegment(segment, i, t) {
     _round(x2a), //fourth control point
     _round(y2a),
   );
-  segment.samples &&
-    segment.samples.splice(
-      ((i / 6) * segment.resolution) | 0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-    );
+  segment.samples && segment.samples.splice(((i / 6) * segment.resolution) | 0, 0, 0, 0, 0, 0, 0, 0);
   return 6;
 } // returns an object {path, segment, segIndex, i, t}
 
@@ -809,10 +670,7 @@ export function getPositionOnPath(rawPath, progress, includeAngle, point) {
   samples = segment.samples;
   resolution = segment.resolution;
   length = segment.totalLength * progress;
-  i =
-    segment.lookup[
-      progress < 1 ? ~~(length / segment.minLength) : segment.lookup.length - 1
-    ] || 0;
+  i = segment.lookup[progress < 1 ? ~~(length / segment.minLength) : segment.lookup.length - 1] || 0;
   min = i ? samples[i - 1] : 0;
   max = samples[i];
 
@@ -825,23 +683,11 @@ export function getPositionOnPath(rawPath, progress, includeAngle, point) {
   inv = 1 - t;
   i = ~~(i / resolution) * 6;
   a = segment[i];
-  result.x = _round(
-    (t * t * (segment[i + 6] - a) +
-      3 * inv * (t * (segment[i + 4] - a) + inv * (segment[i + 2] - a))) *
-      t +
-      a,
-  );
-  result.y = _round(
-    (t * t * (segment[i + 7] - (a = segment[i + 1])) +
-      3 * inv * (t * (segment[i + 5] - a) + inv * (segment[i + 3] - a))) *
-      t +
-      a,
-  );
+  result.x = _round((t * t * (segment[i + 6] - a) + 3 * inv * (t * (segment[i + 4] - a) + inv * (segment[i + 2] - a))) * t + a);
+  result.y = _round((t * t * (segment[i + 7] - (a = segment[i + 1])) + 3 * inv * (t * (segment[i + 5] - a) + inv * (segment[i + 3] - a))) * t + a);
 
   if (includeAngle) {
-    result.angle = segment.totalLength
-      ? getRotationAtBezierT(segment, i, t >= 1 ? 1 - 1e-9 : t ? t : 1e-9)
-      : segment.angle || 0;
+    result.angle = segment.totalLength ? getRotationAtBezierT(segment, i, t >= 1 ? 1 - 1e-9 : t ? t : 1e-9) : segment.angle || 0;
   }
 
   return result;
@@ -871,17 +717,7 @@ export function transformRawPath(rawPath, a, b, c, d, tx, ty) {
   return rawPath;
 } // translates SVG arc data into a segment (cubic beziers). Angle is in degrees.
 
-function arcToSegment(
-  lastX,
-  lastY,
-  rx,
-  ry,
-  angle,
-  largeArcFlag,
-  sweepFlag,
-  x,
-  y,
-) {
+function arcToSegment(lastX, lastY, rx, ry, angle, largeArcFlag, sweepFlag, x, y) {
   if (lastX === x && lastY === y) {
     return;
   }
@@ -909,9 +745,7 @@ function arcToSegment(
 
   var rx_sq = rx * rx,
     ry_sq = ry * ry,
-    sq =
-      (rx_sq * ry_sq - rx_sq * y1_sq - ry_sq * x1_sq) /
-      (rx_sq * y1_sq + ry_sq * x1_sq);
+    sq = (rx_sq * ry_sq - rx_sq * y1_sq - ry_sq * x1_sq) / (rx_sq * y1_sq + ry_sq * x1_sq);
 
   if (sq < 0) {
     sq = 0;
@@ -930,9 +764,7 @@ function arcToSegment(
     vy = (-y1 - cy1) / ry,
     temp = ux * ux + uy * uy,
     angleStart = (uy < 0 ? -1 : 1) * Math.acos(ux / _sqrt(temp)),
-    angleExtent =
-      (ux * vy - uy * vx < 0 ? -1 : 1) *
-      Math.acos((ux * vx + uy * vy) / _sqrt(temp * (vx * vx + vy * vy)));
+    angleExtent = (ux * vy - uy * vx < 0 ? -1 : 1) * Math.acos((ux * vx + uy * vy) / _sqrt(temp * (vx * vx + vy * vy)));
 
   isNaN(angleExtent) && (angleExtent = PI); //rare edge case. Math.cos(-1) is NaN.
 
@@ -948,8 +780,7 @@ function arcToSegment(
   var segments = Math.ceil(_abs(angleExtent) / (TWOPI / 4)),
     rawPath = [],
     angleIncrement = angleExtent / segments,
-    controlLength =
-      ((4 / 3) * _sin(angleIncrement / 2)) / (1 + _cos(angleIncrement / 2)),
+    controlLength = ((4 / 3) * _sin(angleIncrement / 2)) / (1 + _cos(angleIncrement / 2)),
     ma = cosAngle * rx,
     mb = sinAngle * rx,
     mc = sinAngle * -ry,
@@ -962,14 +793,7 @@ function arcToSegment(
     y1 = _sin(angle);
     ux = _cos((angle += angleIncrement));
     uy = _sin(angle);
-    rawPath.push(
-      x1 - controlLength * y1,
-      y1 + controlLength * x1,
-      ux + controlLength * uy,
-      uy - controlLength * ux,
-      ux,
-      uy,
-    );
+    rawPath.push(x1 - controlLength * y1, y1 + controlLength * x1, ux + controlLength * uy, uy - controlLength * ux, ux, uy);
   } //now transform according to the actual size of the ellipse/arc (the beziers were noramlized, between 0 and 1 on a circle).
 
   for (i = 0; i < rawPath.length; i += 2) {
@@ -1077,14 +901,7 @@ export function stringToRawPath(d) {
         relativeX = relativeY = 0;
       } //note: "*1" is just a fast/short way to cast the value as a Number. WAAAY faster in Chrome, slightly slower in Firefox.
 
-      segment.push(
-        x,
-        y,
-        relativeX + a[i + 3] * 1,
-        relativeY + a[i + 4] * 1,
-        (relativeX += a[i + 5] * 1),
-        (relativeY += a[i + 6] * 1),
-      );
+      segment.push(x, y, relativeX + a[i + 3] * 1, relativeY + a[i + 4] * 1, (relativeX += a[i + 5] * 1), (relativeY += a[i + 6] * 1));
       i += 6; // "S" (continuation of cubic bezier)
     } else if (command === "S") {
       difX = relativeX;
@@ -1099,14 +916,7 @@ export function stringToRawPath(d) {
         relativeX = relativeY = 0;
       }
 
-      segment.push(
-        difX,
-        difY,
-        x,
-        y,
-        (relativeX += a[i + 3] * 1),
-        (relativeY += a[i + 4] * 1),
-      );
+      segment.push(difX, difY, x, y, (relativeX += a[i + 3] * 1), (relativeY += a[i + 4] * 1));
       i += 4; // "Q" (quadratic bezier)
     } else if (command === "Q") {
       difX = relativeX + (x - relativeX) * twoThirds;
@@ -1118,38 +928,19 @@ export function stringToRawPath(d) {
 
       relativeX += a[i + 3] * 1;
       relativeY += a[i + 4] * 1;
-      segment.push(
-        difX,
-        difY,
-        relativeX + (x - relativeX) * twoThirds,
-        relativeY + (y - relativeY) * twoThirds,
-        relativeX,
-        relativeY,
-      );
+      segment.push(difX, difY, relativeX + (x - relativeX) * twoThirds, relativeY + (y - relativeY) * twoThirds, relativeX, relativeY);
       i += 4; // "T" (continuation of quadratic bezier)
     } else if (command === "T") {
       difX = relativeX - segment[segment.length - 4];
       difY = relativeY - segment[segment.length - 3];
-      segment.push(
-        relativeX + difX,
-        relativeY + difY,
-        x + (relativeX + difX * 1.5 - x) * twoThirds,
-        y + (relativeY + difY * 1.5 - y) * twoThirds,
-        (relativeX = x),
-        (relativeY = y),
-      );
+      segment.push(relativeX + difX, relativeY + difY, x + (relativeX + difX * 1.5 - x) * twoThirds, y + (relativeY + difY * 1.5 - y) * twoThirds, (relativeX = x), (relativeY = y));
       i += 2; // "H" (horizontal line)
     } else if (command === "H") {
       line(relativeX, relativeY, (relativeX = x), relativeY);
       i += 1; // "V" (vertical line)
     } else if (command === "V") {
       //adjust values because the first (and only one) isn't x in this case, it's y.
-      line(
-        relativeX,
-        relativeY,
-        relativeX,
-        (relativeY = x + (isRelative ? relativeY - relativeX : 0)),
-      );
+      line(relativeX, relativeY, relativeX, (relativeY = x + (isRelative ? relativeY - relativeX : 0)));
       i += 1; // "L" (line) or "Z" (close)
     } else if (command === "L" || command === "Z") {
       if (command === "Z") {
@@ -1158,11 +949,7 @@ export function stringToRawPath(d) {
         segment.closed = true;
       }
 
-      if (
-        command === "L" ||
-        _abs(relativeX - x) > 0.5 ||
-        _abs(relativeY - y) > 0.5
-      ) {
+      if (command === "L" || _abs(relativeX - x) > 0.5 || _abs(relativeY - y) > 0.5) {
         line(relativeX, relativeY, x, y);
 
         if (command === "L") {
@@ -1195,17 +982,7 @@ export function stringToRawPath(d) {
         flag1 = flag1.charAt(0);
       }
 
-      beziers = arcToSegment(
-        relativeX,
-        relativeY,
-        +a[i + 1],
-        +a[i + 2],
-        +a[i + 3],
-        +flag1,
-        +flag2,
-        (isRelative ? relativeX : 0) + difX * 1,
-        (isRelative ? relativeY : 0) + difY * 1,
-      );
+      beziers = arcToSegment(relativeX, relativeY, +a[i + 1], +a[i + 2], +a[i + 3], +flag1, +flag2, (isRelative ? relativeX : 0) + difX * 1, (isRelative ? relativeY : 0) + difY * 1);
       i += j;
 
       if (beziers) {
@@ -1235,19 +1012,7 @@ export function stringToRawPath(d) {
   return path;
 } //populates the points array in alternating x/y values (like [x, y, x, y...] instead of individual point objects [{x, y}, {x, y}...] to conserve memory and stay in line with how we're handling segment arrays
 
-export function bezierToPoints(
-  x1,
-  y1,
-  x2,
-  y2,
-  x3,
-  y3,
-  x4,
-  y4,
-  threshold,
-  points,
-  index,
-) {
+export function bezierToPoints(x1, y1, x2, y2, x3, y3, x4, y4, threshold, points, index) {
   var x12 = (x1 + x2) / 2,
     y12 = (y1 + y2) / 2,
     x23 = (x2 + x3) / 2,
@@ -1275,32 +1040,8 @@ export function bezierToPoints(
 
   if ((d2 + d3) * (d2 + d3) > threshold * (dx * dx + dy * dy)) {
     length = points.length;
-    bezierToPoints(
-      x1,
-      y1,
-      x12,
-      y12,
-      x123,
-      y123,
-      x1234,
-      y1234,
-      threshold,
-      points,
-      index,
-    );
-    bezierToPoints(
-      x1234,
-      y1234,
-      x234,
-      y234,
-      x34,
-      y34,
-      x4,
-      y4,
-      threshold,
-      points,
-      index + 2 + (points.length - length),
-    );
+    bezierToPoints(x1, y1, x12, y12, x123, y123, x1234, y1234, threshold, points, index);
+    bezierToPoints(x1234, y1234, x234, y234, x34, y34, x4, y4, threshold, points, index + 2 + (points.length - length));
   }
 
   return points;
@@ -1332,14 +1073,7 @@ export function flatPointsToSegment(points, curviness) {
     i = 2;
 
   for (; i < points.length; i += 2) {
-    segment.push(
-      x,
-      y,
-      points[i],
-      (y = ((points[i] - x) * curviness) / 2),
-      (x = points[i]),
-      -y,
-    );
+    segment.push(x, y, points[i], (y = ((points[i] - x) * curviness) / 2), (x = points[i]), -y);
   }
 
   return segment;
@@ -1347,9 +1081,7 @@ export function flatPointsToSegment(points, curviness) {
 
 export function pointsToSegment(points, curviness, cornerThreshold) {
   //points = simplifyPoints(points, tolerance);
-  _abs(points[0] - points[2]) < 1e-4 &&
-    _abs(points[1] - points[3]) < 1e-4 &&
-    (points = points.slice(2)); // if the first two points are super close, dump the first one.
+  _abs(points[0] - points[2]) < 1e-4 && _abs(points[1] - points[3]) < 1e-4 && (points = points.slice(2)); // if the first two points are super close, dump the first one.
 
   var l = points.length - 2,
     x = +points[0],
@@ -1359,8 +1091,7 @@ export function pointsToSegment(points, curviness, cornerThreshold) {
     segment = [x, y, x, y],
     dx2 = nextX - x,
     dy2 = nextY - y,
-    closed =
-      Math.abs(points[l] - x) < 0.001 && Math.abs(points[l + 1] - y) < 0.001,
+    closed = Math.abs(points[l] - x) < 0.001 && Math.abs(points[l + 1] - y) < 0.001,
     prevX,
     prevY,
     angle,
@@ -1450,9 +1181,7 @@ export function pointsToSegment(points, curviness, cornerThreshold) {
     }
   }
 
-  x !== nextX || y !== nextY || segment.length < 4
-    ? segment.push(_round(nextX), _round(nextY), _round(nextX), _round(nextY))
-    : (segment.length -= 2);
+  x !== nextX || y !== nextY || segment.length < 4 ? segment.push(_round(nextX), _round(nextY), _round(nextX), _round(nextY)) : (segment.length -= 2);
 
   if (closed) {
     segment.splice(0, 6);
@@ -1502,11 +1231,9 @@ function simplifyStep(points, first, last, tolerance, simplified) {
   }
 
   if (maxSqDist > tolerance) {
-    index - first > 2 &&
-      simplifyStep(points, first, index, tolerance, simplified);
+    index - first > 2 && simplifyStep(points, first, index, tolerance, simplified);
     simplified.push(points[index], points[index + 1]);
-    last - index > 2 &&
-      simplifyStep(points, index, last, tolerance, simplified);
+    last - index > 2 && simplifyStep(points, index, last, tolerance, simplified);
   }
 } //points is an array of x/y values like [x, y, x, y, x, y]
 
@@ -1545,22 +1272,7 @@ export function simplifyPoints(points, tolerance) {
   return result;
 }
 
-function getClosestProgressOnBezier(
-  iterations,
-  px,
-  py,
-  start,
-  end,
-  slices,
-  x0,
-  y0,
-  x1,
-  y1,
-  x2,
-  y2,
-  x3,
-  y3,
-) {
+function getClosestProgressOnBezier(iterations, px, py, start, end, slices, x0, y0, x1, y1, x2, y2, x3, y3) {
   var inc = (end - start) / slices,
     best = 0,
     t = start,
@@ -1574,16 +1286,8 @@ function getClosestProgressOnBezier(
 
   while (t <= end) {
     inv = 1 - t;
-    x =
-      inv * inv * inv * x0 +
-      3 * inv * inv * t * x1 +
-      3 * inv * t * t * x2 +
-      t * t * t * x3;
-    y =
-      inv * inv * inv * y0 +
-      3 * inv * inv * t * y1 +
-      3 * inv * t * t * y2 +
-      t * t * t * y3;
+    x = inv * inv * inv * x0 + 3 * inv * inv * t * x1 + 3 * inv * t * t * x2 + t * t * t * x3;
+    y = inv * inv * inv * y0 + 3 * inv * inv * t * y1 + 3 * inv * t * t * y2 + t * t * t * y3;
     dx = x - px;
     dy = y - py;
     d = dx * dx + dy * dy;
@@ -1596,24 +1300,7 @@ function getClosestProgressOnBezier(
     t += inc;
   }
 
-  return iterations > 1
-    ? getClosestProgressOnBezier(
-        iterations - 1,
-        px,
-        py,
-        Math.max(best - inc, 0),
-        Math.min(best + inc, 1),
-        slices,
-        x0,
-        y0,
-        x1,
-        y1,
-        x2,
-        y2,
-        x3,
-        y3,
-      )
-    : best;
+  return iterations > 1 ? getClosestProgressOnBezier(iterations - 1, px, py, Math.max(best - inc, 0), Math.min(best + inc, 1), slices, x0, y0, x1, y1, x2, y2, x3, y3) : best;
 }
 
 export function getClosestData(rawPath, x, y, slices) {
@@ -1633,22 +1320,7 @@ export function getClosestData(rawPath, x, y, slices) {
     segment = rawPath[j];
 
     for (i = 0; i < segment.length; i += 6) {
-      t = getClosestProgressOnBezier(
-        1,
-        x,
-        y,
-        0,
-        1,
-        slices || 20,
-        segment[i],
-        segment[i + 1],
-        segment[i + 2],
-        segment[i + 3],
-        segment[i + 4],
-        segment[i + 5],
-        segment[i + 6],
-        segment[i + 7],
-      );
+      t = getClosestProgressOnBezier(1, x, y, 0, 1, slices || 20, segment[i], segment[i + 1], segment[i + 2], segment[i + 3], segment[i + 4], segment[i + 5], segment[i + 6], segment[i + 7]);
 
       if (bestDistance > _bestDistance) {
         bestDistance = _bestDistance;
@@ -1673,22 +1345,7 @@ export function subdivideSegmentNear(x, y, segment, slices, iterations) {
   iterations = iterations || 3;
 
   for (i = 0; i < l; i += 6) {
-    t = getClosestProgressOnBezier(
-      1,
-      x,
-      y,
-      0,
-      1,
-      slices,
-      segment[i],
-      segment[i + 1],
-      segment[i + 2],
-      segment[i + 3],
-      segment[i + 4],
-      segment[i + 5],
-      segment[i + 6],
-      segment[i + 7],
-    );
+    t = getClosestProgressOnBezier(1, x, y, 0, 1, slices, segment[i], segment[i + 1], segment[i + 2], segment[i + 3], segment[i + 4], segment[i + 5], segment[i + 6], segment[i + 7]);
 
     if (bestDistance > _bestDistance) {
       bestDistance = _bestDistance;
@@ -1697,22 +1354,7 @@ export function subdivideSegmentNear(x, y, segment, slices, iterations) {
     }
   }
 
-  t = getClosestProgressOnBezier(
-    iterations,
-    x,
-    y,
-    bestT - 0.05,
-    bestT + 0.05,
-    slices,
-    segment[bestSegmentIndex],
-    segment[bestSegmentIndex + 1],
-    segment[bestSegmentIndex + 2],
-    segment[bestSegmentIndex + 3],
-    segment[bestSegmentIndex + 4],
-    segment[bestSegmentIndex + 5],
-    segment[bestSegmentIndex + 6],
-    segment[bestSegmentIndex + 7],
-  );
+  t = getClosestProgressOnBezier(iterations, x, y, bestT - 0.05, bestT + 0.05, slices, segment[bestSegmentIndex], segment[bestSegmentIndex + 1], segment[bestSegmentIndex + 2], segment[bestSegmentIndex + 3], segment[bestSegmentIndex + 4], segment[bestSegmentIndex + 5], segment[bestSegmentIndex + 6], segment[bestSegmentIndex + 7]);
   subdivideSegment(segment, bestSegmentIndex, t);
   return bestSegmentIndex + 6;
 }
@@ -1744,19 +1386,7 @@ export function rawPathToString(rawPath) {
     sl = segment.length;
 
     for (i = 2; i < sl; i++) {
-      result +=
-        _round(segment[i++]) +
-        "," +
-        _round(segment[i++]) +
-        " " +
-        _round(segment[i++]) +
-        "," +
-        _round(segment[i++]) +
-        " " +
-        _round(segment[i++]) +
-        "," +
-        _round(segment[i]) +
-        " ";
+      result += _round(segment[i++]) + "," + _round(segment[i++]) + " " + _round(segment[i++]) + "," + _round(segment[i++]) + " " + _round(segment[i++]) + "," + _round(segment[i]) + " ";
     }
 
     if (segment.closed) {

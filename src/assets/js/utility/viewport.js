@@ -4,12 +4,8 @@ const viewport = document.querySelector('meta[name="viewport"]');
  * @description 375px以下のビューポートを固定
  */
 export const viewportFix = () => {
-  const value =
-    window.outerWidth > 375
-      ? "width=device-width,initial-scale=1"
-      : "width=375";
-  if (viewport.getAttribute("content") !== value)
-    viewport.setAttribute("content", value);
+  const value = window.outerWidth > 375 ? "width=device-width,initial-scale=1" : "width=375";
+  if (viewport.getAttribute("content") !== value) viewport.setAttribute("content", value);
 };
 
 /**
