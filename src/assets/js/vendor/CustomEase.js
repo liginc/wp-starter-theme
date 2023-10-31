@@ -9,22 +9,12 @@
  */
 
 /* eslint-disable */
-import {
-  stringToRawPath,
-  rawPathToString,
-  transformRawPath,
-} from "./utils/paths.js";
+import { stringToRawPath, rawPathToString, transformRawPath } from "./utils/paths.js";
 
 var gsap,
   _coreInitted,
   _getGSAP = function _getGSAP() {
-    return (
-      gsap ||
-      (typeof window !== "undefined" &&
-        (gsap = window.gsap) &&
-        gsap.registerPlugin &&
-        gsap)
-    );
+    return gsap || (typeof window !== "undefined" && (gsap = window.gsap) && gsap.registerPlugin && gsap);
   },
   _initCore = function _initCore() {
     gsap = _getGSAP();
@@ -66,12 +56,7 @@ var gsap,
       ty = -originY,
       l = values.length,
       sx = 1 / (+values[l - 2] + tx),
-      sy =
-        -height ||
-        (Math.abs(+values[l - 1] - +values[1]) <
-        0.01 * (+values[l - 2] - +values[0])
-          ? _findMinimum(values) + ty
-          : +values[l - 1] + ty),
+      sy = -height || (Math.abs(+values[l - 1] - +values[1]) < 0.01 * (+values[l - 2] - +values[0]) ? _findMinimum(values) + ty : +values[l - 1] + ty),
       i;
 
     if (sy) {
@@ -88,19 +73,7 @@ var gsap,
     }
   },
   //note that this function returns point objects like {x, y} rather than working with segments which are arrays with alternating x, y values as in the similar function in paths.js
-  _bezierToPoints = function _bezierToPoints(
-    x1,
-    y1,
-    x2,
-    y2,
-    x3,
-    y3,
-    x4,
-    y4,
-    threshold,
-    points,
-    index,
-  ) {
+  _bezierToPoints = function _bezierToPoints(x1, y1, x2, y2, x3, y3, x4, y4, threshold, points, index) {
     var x12 = (x1 + x2) / 2,
       y12 = (y1 + y2) / 2,
       x23 = (x2 + x3) / 2,
@@ -141,33 +114,9 @@ var gsap,
     if ((d2 + d3) * (d2 + d3) > threshold * (dx * dx + dy * dy)) {
       length = points.length;
 
-      _bezierToPoints(
-        x1,
-        y1,
-        x12,
-        y12,
-        x123,
-        y123,
-        x1234,
-        y1234,
-        threshold,
-        points,
-        index,
-      );
+      _bezierToPoints(x1, y1, x12, y12, x123, y123, x1234, y1234, threshold, points, index);
 
-      _bezierToPoints(
-        x1234,
-        y1234,
-        x234,
-        y234,
-        x34,
-        y34,
-        x4,
-        y4,
-        threshold,
-        points,
-        index + 1 + (points.length - length),
-      );
+      _bezierToPoints(x1234, y1234, x234, y234, x34, y34, x4, y4, threshold, points, index + 1 + (points.length - length));
     }
 
     return points;
@@ -202,10 +151,7 @@ export var CustomEase = /*#__PURE__*/ (function () {
       p;
     this.data = data;
 
-    if (
-      _needsParsingExp.test(data) ||
-      (~data.indexOf("M") && data.indexOf("C") < 0)
-    ) {
+    if (_needsParsingExp.test(data) || (~data.indexOf("M") && data.indexOf("C") < 0)) {
       values = stringToRawPath(data)[0];
     }
 
@@ -236,19 +182,7 @@ export var CustomEase = /*#__PURE__*/ (function () {
       };
       points.push(a1, a2);
 
-      _bezierToPoints(
-        a1.x,
-        a1.y,
-        +values[i],
-        +values[i + 1],
-        +values[i + 2],
-        +values[i + 3],
-        a2.x,
-        a2.y,
-        1 / (precision * 200000),
-        points,
-        points.length - 1,
-      );
+      _bezierToPoints(a1.x, a1.y, +values[i], +values[i + 1], +values[i + 2], +values[i + 3], a2.x, a2.y, 1 / (precision * 200000), points, points.length - 1);
     }
 
     l = points.length;
@@ -257,12 +191,7 @@ export var CustomEase = /*#__PURE__*/ (function () {
       point = points[i];
       prevPoint = points[i - 1] || point;
 
-      if (
-        (point.x > prevPoint.x ||
-          (prevPoint.y !== point.y && prevPoint.x === point.x) ||
-          point === prevPoint) &&
-        point.x <= 1
-      ) {
+      if ((point.x > prevPoint.x || (prevPoint.y !== point.y && prevPoint.x === point.x) || point === prevPoint) && point.x <= 1) {
         //if a point goes BACKWARD in time or is a duplicate, just drop it. Also it shouldn't go past 1 on the x axis, as could happen in a string like "M0,0 C0,0 0.12,0.68 0.18,0.788 0.195,0.845 0.308,1 0.32,1 0.403,1.005 0.398,1 0.5,1 0.602,1 0.816,1.005 0.9,1 0.91,1 0.948,0.69 0.962,0.615 1.003,0.376 1,0 1,0".
         prevPoint.cx = point.x - prevPoint.x; //change in x between this point and the next point (performance optimization)
 
@@ -270,13 +199,7 @@ export var CustomEase = /*#__PURE__*/ (function () {
         prevPoint.n = point;
         prevPoint.nx = point.x; //next point's x value (performance optimization, making lookups faster in getRatio()). Remember, the lookup will always land on a spot where it's either this point or the very next one (never beyond that)
 
-        if (
-          fast &&
-          i > 1 &&
-          Math.abs(
-            prevPoint.cy / prevPoint.cx - points[i - 2].cy / points[i - 2].cx,
-          ) > 2
-        ) {
+        if (fast && i > 1 && Math.abs(prevPoint.cy / prevPoint.cx - points[i - 2].cy / points[i - 2].cx) > 2) {
           //if there's a sudden change in direction, prioritize accuracy over speed. Like a bounce ease - you don't want to risk the sampling chunks landing on each side of the bounce anchor and having it clipped off.
           fast = 0;
         }
@@ -411,9 +334,7 @@ export var CustomEase = /*#__PURE__*/ (function () {
     }
 
     if (ease instanceof CustomEase) {
-      a = rawPathToString(
-        transformRawPath([ease.segment], width, 0, 0, -height, x, y),
-      );
+      a = rawPathToString(transformRawPath([ease.segment], width, 0, 0, -height, x, y));
     } else {
       a = [x, y];
       precision = Math.max(5, (config.precision || 1) * 200);
@@ -428,10 +349,7 @@ export var CustomEase = /*#__PURE__*/ (function () {
         tx = _round(x + i * inc * width);
         ty = _round(y + ease(i * inc) * -height);
 
-        if (
-          Math.abs((ty - prevY) / (tx - prevX) - slope) > threshold ||
-          i === precision - 1
-        ) {
+        if (Math.abs((ty - prevY) / (tx - prevX) - slope) > threshold || i === precision - 1) {
           //only add points when the slope changes beyond the threshold
           a.push(prevX, prevY);
           slope = (ty - prevY) / (tx - prevX);
