@@ -8,7 +8,14 @@ get_template_part("./parts/global-header"); ?>
         <img src="<?= vite_src_images("logo.svg") ?>" width="58" height="48" decoding="async" alt="LIG" class="w-full">
       </h1>
       <div class="index__thumbnail">
-        <img src="<?= vite_src_images("sample-02.jpg") ?>" width="1280" height="600" decoding="async" alt="">
+        <?php get_template_part("./parts/picture-local", null, [
+            "images" => [
+                "src" => "sample-01.jpg",
+                "width" => "1280",
+                "height" => "600",
+                "alt" => "",
+            ],
+        ]); ?>
       </div>
       <ul class="index__anchor__list">
         <li class="index__anchor__item"><a href="#two-column-one" class="js-anchor-link">・2カラムの1番目</a></li>
@@ -17,13 +24,27 @@ get_template_part("./parts/global-header"); ?>
       </ul>
       <div id="two-column-one" class="index__column">
         <div class="index__column__img">
-          <img src="<?= vite_src_images("sample-02.jpg") ?>" width="600" height="400" decoding="async" alt="">
+          <?php get_template_part("./parts/picture-local", null, [
+              "images" => [
+                  "src" => "sample-02.jpg",
+                  "width" => "600",
+                  "height" => "400",
+                  "alt" => "",
+              ],
+          ]); ?>
         </div>
         <p class="index__column__text">どっちは事実同時にこの約束方に対して事のためをあるたう。どうしても今が命令目は無論この前後ますありなりがするていたからはお話間違っでまして、しばらくには云っんたでた。客をただすんのはひとまず事実でしかるにたないだろ。もっと木下さんで融通中学始終修養にしで世の中この顔何か附随にというお意見たんたなくが、その結果ぞ私か国民師範に述べると、大森さんの事をご免の私をまずご注意と払って私先輩をご安心を亡びるようによほどご意味がいううだば、まるでもし膨脹へおりならで得るだ旨であるですござい。</p>
       </div>
       <div id="two-column-two" class="index__column index__column--reverse">
         <div class="index__column__img">
-          <img src="<?= vite_src_images("sample-02.jpg") ?>" width="600" height="400" decoding="async" alt="">
+        <?php get_template_part("./parts/picture-local", null, [
+            "images" => [
+                "src" => "sample-02.jpg",
+                "width" => "600",
+                "height" => "400",
+                "alt" => "",
+            ],
+        ]); ?>
         </div>
         <p class="index__column__text">どっちは事実同時にこの約束方に対して事のためをあるたう。どうしても今が命令目は無論この前後ますありなりがするていたからはお話間違っでまして、しばらくには云っんたでた。客をただすんのはひとまず事実でしかるにたないだろ。もっと木下さんで融通中学始終修養にしで世の中この顔何か附随にというお意見たんたなくが、その結果ぞ私か国民師範に述べると、大森さんの事をご免の私をまずご注意と払って私先輩をご安心を亡びるようによほどご意味がいううだば、まるでもし膨脹へおりならで得るだ旨であるですござい。</p>
       </div>

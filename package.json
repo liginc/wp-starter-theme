@@ -6,7 +6,7 @@
     "dev": "cross-env NODE_ENV=development vite --host",
     "build": "cross-env NODE_ENV=production vite build && npm run press:images",
     "preview": "vite preview",
-    "press:images": "node convert.images.mjs -i src/assets/images -o dist/assets/images -w -v -z -t",
+    "press:images": "node convert.images.mjs",
     "db:import": "gzip -dfk sql/wpenv.sql.gz && npm run wp:env run cli wp db import sql/wpenv.sql && rm -f sql/wpenv.sql",
     "db:export": "npm run wp:env run cli wp db export sql/wpenv.sql; gzip -f sql/wpenv.sql",
     "wp:env": "wp-env",

@@ -51,15 +51,18 @@ function vite_src_static($name)
 /**
  * @return ローカル環境or本番環境のIMAGESのパスを返す
  */
-function vite_src_images($name)
+function vite_src_images($name, $extension = "")
 {
     if (IS_TYPE === "local") {
         // develop mode
         return VITE_SERVER . "/src/assets/images/" . $name;
     } elseif (IS_TYPE === "production") {
         // production mode
-        // 拡張子が.jpg/.jpeg/.pngだった場合は.webpに置換
-        $name = preg_replace("/\.(jpg|jpeg|png)/", ".webp", $name);
+        if ($extension === "avif") {
+            $name = preg_replace("/\.(jpg|jpeg|png)/", ".avif", $name);
+        } elseif ($extension === "webp") {
+            $name = preg_replace("/\.(jpg|jpeg|png)/", ".webp", $name);
+        }
         return URL_IMAGES . $name . "?ver=" . date("His");
     }
 }
