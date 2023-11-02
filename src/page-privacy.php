@@ -1,13 +1,12 @@
 <?php
-get_template_part('./parts/global-header');
-?>
+get_template_part("./parts/global-header"); ?>
 
 <div class="privacy">
   <div class="privacy__bg">
     <div class="container">
-      <?php get_template_part('./parts/heading-page', null, [
-        'title' => 'PRIVACY POLICY',
-      ]) ?>
+      <?php get_template_part("./parts/heading-page", null, [
+          "title" => "PRIVACY POLICY",
+      ]); ?>
       <div class="privacy__inner">
         <p class="privacy__text">
           （以下，「当社」といいます。）は，本ウェブサイト上で提供するサービス（以下,「本サービス」といいます。）における，ユーザーの個人情報の取扱いについて，以下のとおりプライバシーポリシー（以下，「本ポリシー」といいます。）を定めます。
@@ -36,6 +35,5 @@ get_template_part('./parts/global-header');
   </div>
 </div>
 
-<?php
-get_template_part('./parts/global-footer');
+<?php get_template_part("./parts/global-footer");
 ?>
