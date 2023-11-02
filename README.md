@@ -113,6 +113,8 @@ background-image: url($base-dir + "assets/images/icon-blank.svg");
 
 ## 😎 Image
 
+ローカルの画像は最適化処理のための簡易的なパーツを用意しています。`src/parts/picture-local.php`を使用するようにしてください。
+
 ```bash
 <?php get_template_part("./parts/picture-local", null, [
   "images" => [
