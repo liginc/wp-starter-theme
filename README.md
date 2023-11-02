@@ -100,11 +100,28 @@ background-image: url($base-dir + "assets/images/icon-blank.svg");
 `vite-config.php`の関数を使用してAssetsにアクセスしてください。
 
 ```bash
-<img src="<?= vite_src_images('sample-01.jpg') ?>" decoding="async" width="1280" height="800" alt="">
+<link rel="stylesheet" href="<?= vite_src_css("app.scss") ?>">
 ```
 
 ```bash
-<img src="<?= vite_src_images('icon-blank.svg') ?>" decoding="async" width="30" height="30" alt="">
+<script type="module" crossorigin src="<?= vite_src_js("app.js") ?>"></script>
+```
+
+```bash
+<img src="<?= vite_src_static('icon-blank.svg') ?>" decoding="async" width="30" height="30" alt="">
+```
+
+## 😎 Image
+
+```bash
+<?php get_template_part("./parts/picture-local", null, [
+  "images" => [
+      "src" => "sample-01.jpg",
+      "width" => "1280",
+      "height" => "600",
+      "alt" => "",
+  ],
+]); ?>
 ```
 
 ## 😎 Svg Sprite
