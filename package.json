@@ -19,14 +19,14 @@
     "lint:style": "stylelint 'src/assets/**/*.{css,scss}'",
     "lint:es": "eslint 'src/assets/**/*.js'",
     "lint:fix": "markuplint 'src/**/*.{html,php}' && stylelint --fix 'src/assets/**/*.{css,scss}' && eslint --fix 'src/assets/**/*.js'",
-    "format": "prettier --write 'src/**/*.{html,css,scss,js,json}'",
+    "format": "prettier --write 'src/**/*.{html,css,scss,js,json,php}'",
     "prepare": "husky install"
   },
   "lint-staged": {
     "*.{html,php}": "markuplint",
     "*.{js}": "eslint --fix",
     "*.{css,scss}": "stylelint --fix",
-    "*.{html,css,scss,js,json}": "prettier --write"
+    "*.{html,css,scss,js,json,php}": "prettier --write"
   },
   "author": "HISAMI KURITA",
   "license": "ISC",
