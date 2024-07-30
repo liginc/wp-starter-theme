@@ -73,6 +73,7 @@ export default defineConfig({
       },
     },
   },
+  // CSSでローカルと本番で異なる参照をしたい時に設定してください
   css: {
     preprocessorOptions: {
       scss: {
