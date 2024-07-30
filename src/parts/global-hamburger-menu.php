@@ -1,4 +1,4 @@
-<div class="global-hamburger-menu">
+<div aria-hidden="true" id="hamburger-menu" class="global-hamburger-menu js-global-hamburger-menu">
   <nav>
     <ul class="global-hamburger-menu__list">
       <li class="global-hamburger-menu__item"><a href="<?= URL_HOME ?>">HOME</a></li>
