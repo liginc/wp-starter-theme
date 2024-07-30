@@ -10,7 +10,7 @@ WordPressは常に最新のバージョンを取得する設定になってい�
 - WP ver latest
 - PHP ver 8.1
 
-## WP Plugins
+## 🔧 WP Plugins
 
 本番またはテストサーバーでは下記のプラグインをインストールすることを推奨しています。
 
