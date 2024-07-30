@@ -8,20 +8,10 @@ import { viewportFix, viewportSize } from "./utility/viewport";
 import { gridHelper } from "./helper/grid";
 import { IS_TYPE_LOCAL } from "./variables";
 
-// modules
-hamburgerMenu();
-slider();
-anchorLink();
-tab();
-modal();
-accordion();
-
-// event
-const body = document.querySelector("body");
-
+/**
+ * viewportに関する処理
+ */
 window.addEventListener("load", () => {
-  body.classList.add("is-loaded");
-  if (IS_TYPE_LOCAL) gridHelper();
   viewportSize();
   viewportFix();
 });
@@ -30,3 +20,14 @@ window.addEventListener("resize", () => {
   viewportSize();
   viewportFix();
 });
+
+/**
+ * modules
+ */
+hamburgerMenu();
+slider();
+anchorLink();
+tab();
+modal();
+accordion();
+if (IS_TYPE_LOCAL) gridHelper();

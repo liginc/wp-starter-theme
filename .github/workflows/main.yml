@@ -7,8 +7,55 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    # slack notification
     steps:
+      # Github Actionsでの自動デプロイ設定ファイルのサンプル
+      # 以下のように設定することで、masterブランチにpushされた際にビルドを行い、ビルドしたファイルをリモートサーバーにデプロイすることができる
+
+      # #公式のアクション「actions/checkout」実行する。リポジトリをクローンしてくる
+      # - name: 📦 Get latest code
+      #   uses: actions/checkout@v3
+
+      # #nodeのバージョンを指定
+      # - name: 💻 Setup node
+      #   uses: actions/setup-node@v3 #公式のアクションを使用する
+      #   with: #引数でバージョン指定
+      #     node-version: "18"
+
+      # #モジュールのキャッシュ
+      # - name: ⚡ Cache node modules
+      #   uses: actions/cache@v3
+      #   with:
+      #     path: node_modules
+      #     key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+      #     restore-keys: |
+      #       ${{ runner.os }}-node-
+
+      # #node moduleをインストール
+      # - name: 😉 Install modules
+      #   run: npm install && npm rebuild --arch=x64 --platform=linux sharp
+      #   working-directory: ./ #ディレクトリのトップで実行
+
+      # #ビルド
+      # - name: 🐶 Build Project
+      #   run: npm run build
+      #   working-directory: ./ #ディレクトリのトップで実行
+
+      # #キーのデコード
+      # - name: 🔑 generate ssh key
+      #   run: echo $PRIVATE_KEY | base64 --decode > key && chmod 600 key
+      #   env:
+      #     PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
+
+      # #ビルドしたファイルをrsyncでアップロード
+      # - name: 🎉 Sync
+      #   run: rsync -av -e "ssh -i ./key -p ${SSH_PORT} -o StrictHostKeyChecking=no" ./dist/ "${SSH_USER}:${DOCUMENT_ROOT}/${SSH_REMOTE_PATH}"
+      #   env:
+      #     SSH_USER: ${{ secrets.SSH_USER }}
+      #     SSH_PORT: ${{ secrets.SSH_PORT }}
+      #     DOCUMENT_ROOT: ${{ secrets.DOCUMENT_ROOT }}
+      #     SSH_REMOTE_PATH: ${{ secrets.SSH_REMOTE_PATH }}
+
+      #Slack通知 🏃‍♂️
       - name: Slack Notification
         uses: rtCamp/action-slack-notify@v2.2.0
         env:
