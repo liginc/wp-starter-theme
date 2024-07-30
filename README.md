@@ -2,8 +2,8 @@
 
 ## 🛜 WP Environment
 
-本テンプレートはWordPressのアップデートが常に行われていくこと、運用がLIG以外になる可能性を考慮して互換性に特化したものになっています。<br>
-そのため`functions`のカスタムは最小限に留めて、必要な機能はプラグインに任せます。
+本テンプレートはWordPressのアップデートが常に行われていくこと、運用が第三者になる可能性を考慮して互換性に特化したものになっています。<br>
+そのため`functions`のカスタムは最小限に留めて、必要な機能はプラグインに任せる方針になっています。
 
 WordPressは常に最新のバージョンを取得します。プロジェクト開始時に `.wp-env.json` を編集してバージョンを固定してください。
 
@@ -12,7 +12,7 @@ WordPressは常に最新のバージョンを取得します。プロジェク�
 
 ## 💰 Paid Plugins
 
-有料プラグインについては下記のリンクからダウンロードをして `/plugins`配下に設置してください。Gitで管理されます。
+下記の有料のプラグインを使用したい場合は運用者に連絡をしてください。リンクがダウンロードできるようになるので `/plugins`配下に設置してください。
 
 - [advanced-custom-fields-pro](https://bitbucket.org/lig-admin/lig-wordpress-plugins/src/master/admin-columns-pro/)
 - [all-in-one-wp-migration-unlimited-extension](https://bitbucket.org/lig-admin/lig-wordpress-plugins/src/master/all-in-one-wp-migration-unlimited-extension/)
@@ -20,7 +20,7 @@ WordPressは常に最新のバージョンを取得します。プロジェク�
 ## 🐶 Usage Environment
 
 - [Docker Desktop](https://hub.docker.com/editions/community/docker-ce-desktop-mac/)
-- Node.js >= 16
+- Node.js >= 18
 
 ## 😌 Local Environment Setup
 
@@ -53,15 +53,6 @@ user : admin
 password : password
 ```
 
-## 🏠 Browser Sync
-
-ネットワーク経由でのアクセスをする場合は`.wp-env.json`の`VITE_SERVER`の値を自身のローカルIPに変更してください。<br>
-こちらは暫定対応です。`.wp-env.json`はGit管理されているので、こちらの値を上書きしてコミットしないように注意してください。
-
-```bash
-"VITE_SERVER": "http://0.0.0.0:3000"
-```
-
 ## 💻 Production Upload
 
 ```bash
@@ -70,9 +61,18 @@ npm run build
 
 アップロードの際は`/dist`以下をアップロードしてください。
 
+## 🏠 Browser Sync
+
+ネットワーク経由でのアクセスをする場合は`.wp-env.json`の`VITE_SERVER`の値を自身のローカルIPに変更してください。<br>
+こちらは暫定対応で`.wp-env.json`はGit管理されているのでこちらの値を上書きしてコミットしないように注意してください。
+
+```bash
+"VITE_SERVER": "http://0.0.0.0:3000"
+```
+
 ## 😺 Grid System
 
-通常の案件では60分割のグリッドシステムによってデザインされています。<br>
+案件によっては60分割のグリッドシステムによってデザインされています。<br>
 スタイリングがしやすいように補助的な役割を担う機能が既に用意されています。
 
 - D キー押下でグリッドラインの表示/非表示が切り替わります。
@@ -80,43 +80,62 @@ npm run build
 
 ## 😻 Styling
 
-クラスの命名については BEM を採用しています。
+クラスの命名については基本的に BEM を採用しています。
 
-- `rem` グリッド線に基づいて計算する時に使用します。
-- `px` 上下の余白、主に`margin-top`や`margin-bottom`の計算の時に使用します。
-- `vw` その他、テキスト、主に`font-size`の計算の時に使用します。計算しやすいように`mixin`が用意されているので、そちらを使用してください。
+- ネスト機能の多用は可読性と検索性が落ちるので控えるようにしてください。
+
+```scss
+// NG
+.hoge {
+  &__title {
+    color: black;
+  }
+}
+
+// OK
+.hoge__title {
+  color: black;
+}
+```
+
+固定値か相対値でコーディングするかはプロジェクトやデザインによって変わってくるので、最初に協議するようにしてください。
+
+- 相対値を使用する場合は`vw`関数を使用するようにしてください。
+
+```scss
+.hoge {
+  font-size: vw(16);
+}
+```
+
+- グリッドの値を参照したい場合は`rem`関数を使用するようにしてください。
+
+```scss
+.hoge {
+  width: rem(1); // 1グリッド
+}
+```
 
 ## 🌙 How to reference images from Css
 
 $base-dir は設定をするとCSSでローカルと本番で異なる参照をすることができます。
 
-```bash
+```scss
 background-image: url($base-dir + "assets/images/icon-blank.svg");
 ```
 
-## 🍰 Assets
+## 😎 Svg Sprite
 
-ローカル環境ではVITEの開発サーバー、本番環境ではテーマのルートを参照する必要があるため<br>
-`vite-config.php`の関数を使用してAssetsにアクセスしてください。
-
-```bash
-<link rel="stylesheet" href="<?= vite_src_css("app.scss") ?>">
+```php
+<?= get_svg_sprite('logo', 'LIG') ?>
 ```
 
-```bash
-<script type="module" crossorigin src="<?= vite_src_js("app.js") ?>"></script>
-```
+## 👟 Image
 
-```bash
-<img src="<?= vite_src_static('icon-blank.svg') ?>" decoding="async" width="30" height="30" alt="">
-```
+画像最適化用に`picture.php`を用意しています。こちらを使用すると`.avif`または`.webp`で画像が配信されます。
 
-## 😎 Image
-
-ローカルの画像は最適化処理のための簡易的なパーツを用意しています。`src/parts/picture-local.php`を使用するようにしてください。
-
-```bash
-<?php get_template_part("./parts/picture-local", null, [
+```php
+<?php get_template_part("./parts/picture", null, [
   "images" => [
       "src" => "sample-01.jpg",
       "width" => "1280",
@@ -126,10 +145,16 @@ background-image: url($base-dir + "assets/images/icon-blank.svg");
 ]); ?>
 ```
 
-## 😎 Svg Sprite
+## 🍰 Assets
 
-```bash
-<?= get_svg_sprite('icon-blank') ?>
+ローカル環境ではVITEの開発サーバー、本番環境ではテーマのルートを参照する必要があるため基本的に`vite-config.php`の関数を使用してAssetsにアクセスしてください。
+
+```php
+<img src="<?= vite_src_images('sample-01.jpg') ?>" decoding="async" width="1280" height="800" alt="">
+```
+
+```php
+<img src="<?= vite_src_images('icon-blank.svg') ?>" decoding="async" width="30" height="30" alt="">
 ```
 
 ## ✋ Lint
@@ -142,7 +167,7 @@ npm run lint:check
 npm run lint:fix
 ```
 
-Lint はプリコミット時に必ず実行されます。以下の vscode プラグインをインストールすると vscode 保存時にも Lint が実行されます。
+Lint はプリコミット時に必ず実行されます。以下の vscode プラグインをインストールすると vscode 保存時にも Lint を実行することができるので便利です。
 
 - [prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
 - [markuplint](https://marketplace.visualstudio.com/items?itemName=yusukehirao.vscode-markuplint)
@@ -151,10 +176,7 @@ Lint はプリコミット時に必ず実行されます。以下の vscode プ�
 
 ## 👉 Git Flow
 
-CI / CD が実装されている場合 main ブランチにマージすると自動デプロイの処理が実行されます。
-
-- main: TBD
-- feature: 機能の追加用。main から分岐して、main に適宜マージしてください。
+開発段階では基本的にfeatureブランチを作成して、mainにマージしてください。CICDが実装されている場合 main ブランチにマージすると自動デプロイの処理が実行されるので誤って本番サーバーにアップしないように注意してください。
 
 ## 👀 Document
 
