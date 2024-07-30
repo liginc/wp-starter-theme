@@ -1,17 +1,21 @@
-image: node:16.17.1
-pipelines:
-  branches:
-    master:
-      - step:
-          name: Build Theme Assets 🐶 & Deploy Production 🎉
-          script:
-            - npm install
-            - npm run build
-            - pipe: atlassian/rsync-deploy:0.9.0
-              variables:
-                USER: $SSH_USER
-                SERVER: $SSH_SERVER
-                REMOTE_PATH: $SSH_REMOTE_PATH
-                LOCAL_PATH: $SSH_LOCAL_PATH
-                DEBUG: "true"
-                SSH_PORT: $SSH_PORT
+# bitbuketでの自動デプロイ設定ファイルのサンプル
+# 以下のように設定することで、masterブランチにpushされた際にビルドを行い、ビルドしたファイルをリモートサーバーにデプロイすることができる
+
+# image: node:18
+# pipelines:
+#   branches:
+#     master:
+#       - step:
+#           name: Build Theme Assets 🐶 & Deploy Production 🎉
+#           script:
+#             - npm install
+#             - npm rebuild --arch=x64 --platform=linux sharp
+#             - npm run build
+#             - pipe: atlassian/rsync-deploy:0.9.0
+#               variables:
+#                 USER: $SSH_USER
+#                 SERVER: $SSH_SERVER
+#                 REMOTE_PATH: $SSH_REMOTE_PATH
+#                 LOCAL_PATH: $SSH_LOCAL_PATH
+#                 DEBUG: "true"
+#                 SSH_PORT: $SSH_PORT

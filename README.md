@@ -149,16 +149,6 @@ Lint はプリコミット時に必ず実行されます。以下の vscode プ�
 - [stylelint](https://marketplace.visualstudio.com/items?itemName=stylelint.vscode-stylelint)
 - [eslint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
 
-## 🚗 Bitbucket Pipelines
-
-リポジトリの「設定」から SSH キーを登録して `bitbucket-pipelines.yml` の下記の値を登録してください。
-
-- $SSH_USER
-- $SSH_SERVER
-- $SSH_REMOTE_PATH
-- $SSH_LOCAL_PATH
-- $SSH_PORT
-
 ## 👉 Git Flow
 
 CI / CD が実装されている場合 main ブランチにマージすると自動デプロイの処理が実行されます。
