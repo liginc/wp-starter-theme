@@ -1,0 +1,17 @@
+@use "mixins" as *;
+
+[data-only-show="pc"] {
+  display: block;
+
+  @include sp {
+    display: none !important;
+  }
+}
+
+[data-only-show="sp"] {
+  display: none;
+
+  @include sp {
+    display: block !important;
+  }
+}

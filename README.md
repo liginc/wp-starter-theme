@@ -5,10 +5,18 @@
 本テンプレートはWordPressのアップデートが常に行われていくこと、運用が第三者になる可能性を考慮して互換性に特化したものになっています。<br>
 そのため`functions`のカスタムは最小限に留めて、必要な機能はプラグインに任せる方針になっています。
 
-WordPressは常に最新のバージョンを取得します。プロジェクト開始時に `.wp-env.json` を編集してバージョンを固定してください。
+WordPressは常に最新のバージョンを取得する設定になっています。プロジェクト開始時に `.wp-env.json` を編集してWordPressとプラグインのバージョンを固定することを推奨しています。
 
 - WP ver latest
 - PHP ver 8.1
+
+## WP Plugins
+
+本番またはテストサーバーでは下記のプラグインをインストールすることを推奨しています。
+
+- https://ja.wordpress.org/plugins/webp-converter-for-media/
+- https://ja.wordpress.org/plugins/all-in-one-wp-security-and-firewall/
+- https://ja.wordpress.org/plugins/autoptimize/
 
 ## 💰 Paid Plugins
 
@@ -137,10 +145,10 @@ background-image: url($base-dir + "assets/images/icon-blank.svg");
 ```php
 <?php get_template_part("./parts/picture", null, [
   "images" => [
-      "src" => "sample-01.jpg",
-      "width" => "1280",
-      "height" => "600",
-      "alt" => "",
+    "src" => "sample-01.jpg",
+    "width" => "1280",
+    "height" => "600",
+    "alt" => "",
   ],
 ]); ?>
 ```
