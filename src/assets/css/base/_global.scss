@@ -5,7 +5,10 @@ html {
 body {
   font-family: $font-yugo;
   color: $color-white;
+  word-break: normal;
+  overflow-wrap: anywhere;
   background-color: $color-black;
+  line-break: strict;
 }
 
 .container {
@@ -19,6 +22,7 @@ img {
 }
 
 svg {
+  display: flex;
   width: 100%;
-  height: auto;
+  height: 100%;
 }

@@ -1,2 +1,1 @@
-// front-page.js
-// console.log("front-page.js");
+// ここにフロントページ用のJavaScriptを記述します。
