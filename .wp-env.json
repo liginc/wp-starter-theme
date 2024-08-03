@@ -1,7 +1,7 @@
 {
   "core": "https://ja.wordpress.org/latest-ja.zip",
   "phpVersion": "8.1",
-  "plugins": ["https://downloads.wordpress.org/plugin/all-in-one-wp-migration.zip", "https://downloads.wordpress.org/plugin/wordpress-seo.zip", "https://downloads.wordpress.org/plugin/query-monitor.zip", "https://downloads.wordpress.org/plugin/wp-multibyte-patch.zip", "https://downloads.wordpress.org/plugin/duplicate-post.zip", "https://downloads.wordpress.org/plugin/custom-post-type-ui.zip"],
+  "plugins": ["https://downloads.wordpress.org/plugin/all-in-one-wp-migration.zip", "https://downloads.wordpress.org/plugin/wordpress-seo.zip", "https://downloads.wordpress.org/plugin/query-monitor.zip", "https://downloads.wordpress.org/plugin/wp-multibyte-patch.zip", "https://downloads.wordpress.org/plugin/duplicate-post.zip", "https://downloads.wordpress.org/plugin/custom-post-type-ui.zip", "https://downloads.wordpress.org/plugin/advanced-custom-fields.zip"],
   "themes": ["./src/"],
   "port": 8000,
   "env": {
