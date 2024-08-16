@@ -51,16 +51,17 @@ function vite_src_static($name)
 /**
  * @return ローカル環境or本番環境のIMAGESのパスを返す
  */
-function vite_src_images($name, $extension = "")
+function vite_src_images($name, $extension = null)
 {
     if (IS_TYPE === "local") {
         // develop mode
         return VITE_SERVER . "/src/assets/images/" . $name;
-    } elseif (IS_TYPE === "production") {
+    } elseif (IS_TYPE_PRODUCTION) {
         // production mode
-        if ($extension === "avif") {
-            $name = preg_replace("/\.(jpg|jpeg|png)/", ".avif", $name);
-        } elseif ($extension === "webp") {
+        // 拡張子の指定がなくて.jpg/.jpeg/.pngだった場合は.webpに置換
+        if (in_array($extension, ["avif", "webp"])) {
+            $name = preg_replace("/\.(jpg|jpeg|png)/", "." . $extension, $name);
+        } else {
             $name = preg_replace("/\.(jpg|jpeg|png)/", ".webp", $name);
         }
         return URL_IMAGES . $name . "?ver=" . date("His");
