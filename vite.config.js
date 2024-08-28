@@ -10,9 +10,7 @@ import svgSpritePlugin from "vite-plugin-svg-sprite-component";
 // srcディレクトリ内のすべてのファイルとディレクトリを取得
 const srcDirectoryContents = fs.readdirSync(path.resolve(__dirname, "src"));
 // assetsフォルダ以外のファイルとディレクトリを抽出
-const nonAssetsContents = srcDirectoryContents.filter(
-  (item) => item !== "assets",
-);
+const nonAssetsContents = srcDirectoryContents.filter((item) => item !== "assets");
 
 export default defineConfig({
   plugins: [
@@ -53,7 +51,7 @@ export default defineConfig({
     rollupOptions: {
       input: {
         app: path.resolve(__dirname + `/src/assets/app.js`),
-        index: path.resolve(__dirname + `/src/assets/front-page.js`),
+        "front-page": path.resolve(__dirname + `/src/assets/front-page.js`),
       },
       output: {
         entryFileNames: `assets/js/[name].js`,
@@ -73,14 +71,11 @@ export default defineConfig({
       },
     },
   },
+  // CSSでローカルと本番で異なる参照をしたい時に設定してください
   css: {
     preprocessorOptions: {
       scss: {
-        additionalData: `$base-dir: ${
-          process.env.NODE_ENV === "development"
-            ? "'http://localhost:3000/'"
-            : "'/'"
-        };`,
+        additionalData: `$base-dir: ${process.env.NODE_ENV === "development" ? "'http://localhost:3000/'" : "'/'"};`,
       },
     },
   },

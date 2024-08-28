@@ -3,46 +3,46 @@ $pagination = $args["pagination"] ?? [];
 // array
 ?>
 
-<nav class="pagination">
-  <ul class="pagination__list">
+<nav class="pagination" aria-label="ページナビゲーション">
+  <div class="pagination__list">
     <!-- arrow prev -->
     <?php if ($pagination["prev"]): ?>
-      <li class="pagination__item">
+      <div class="pagination__item">
         <a href="<?= get_pagenum_link($pagination["prev"]) ?>" class="pagination__arrow pagination__arrow--prev">
-          <img src="<?= vite_src_images("icon-arrow-prev.svg") ?>" width="24" height="24" decoding="async" alt="prev">
+          <?= get_svg_sprite("icon-arrow-prev", "前のページ") ?>
         </a>
-      </li>
+      </div>
     <?php endif; ?>
 
     <!-- page numbers -->
     <?php foreach ($pagination["numbers"] as $k => $i): ?>
-      <li class="pagination__item">
+      <div class="pagination__item">
         <?php if ($i !== $pagination["current"]): ?>
           <a href="<?= get_pagenum_link($i) ?>" class="pagination__link">
             <?= $i ?>
           </a>
         <?php else: ?>
-          <span class="pagination__link is-current">
+          <span class="pagination__link is-current" aria-current="page">
             <?= $i ?>
           </span>
         <?php endif; ?>
-      </li>
+      </div>
       <?php if (array_key_exists($k + 1, $pagination["numbers"]) && $pagination["numbers"][$k + 1] - $i > 1): ?>
-        <li class="pagination__item">
-          <span class="pagination__leader">
+        <div class="pagination__item">
+          <span class="pagination__leader" aria-hidden="true">
             ...
           </span>
-        </li>
+        </div>
       <?php endif; ?>
     <?php endforeach; ?>
 
     <!-- arrow next -->
     <?php if ($pagination["next"]): ?>
-      <li class="pagination__item">
+      <div class="pagination__item">
         <a href="<?= get_pagenum_link($pagination["next"]) ?>" class="pagination__arrow pagination__arrow--next">
-          <img src="<?= vite_src_images("icon-arrow-next.svg") ?>" width="24" height="24" decoding="async" alt="next">
+          <?= get_svg_sprite("icon-arrow-next", "次のページ") ?>
         </a>
-      </li>
+      </div>
     <?php endif; ?>
-  </ul>
+  </div>
 </nav>

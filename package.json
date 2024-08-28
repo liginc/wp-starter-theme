@@ -1,7 +1,7 @@
 {
   "name": "wp-starter-theme",
   "version": "1.0.0",
-  "description": "wordpress starter theme by wp-env & vite",
+  "description": "🌊 simple wordpress starter theme by wp-env & vite",
   "scripts": {
     "dev": "cross-env NODE_ENV=development vite --host",
     "build": "cross-env NODE_ENV=production vite build && npm run press:images",
@@ -62,5 +62,8 @@
     "vite-plugin-static-copy": "^0.14.0",
     "vite-plugin-svg-sprite-component": "^1.0.10",
     "zlib": "^1.0.5"
+  },
+  "engines": {
+    "node": ">=18"
   }
 }

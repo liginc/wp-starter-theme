@@ -5,10 +5,10 @@ get_template_part("./parts/global-header"); ?>
   <div class="index__bg">
     <div class="container">
       <h1 class="index__logo">
-        <img src="<?= vite_src_images("logo.svg") ?>" width="58" height="48" decoding="async" alt="LIG" class="w-full">
+        <?= get_svg_sprite("logo", "LIG") ?>
       </h1>
       <div class="index__thumbnail">
-        <?php get_template_part("./parts/picture-local", null, [
+        <?php get_template_part("./parts/picture", null, [
             "images" => [
                 "src" => "sample-01.jpg",
                 "width" => "1280",
@@ -24,7 +24,7 @@ get_template_part("./parts/global-header"); ?>
       </ul>
       <div id="two-column-one" class="index__column">
         <div class="index__column__img">
-          <?php get_template_part("./parts/picture-local", null, [
+          <?php get_template_part("./parts/picture", null, [
               "images" => [
                   "src" => "sample-02.jpg",
                   "width" => "600",
@@ -37,7 +37,7 @@ get_template_part("./parts/global-header"); ?>
       </div>
       <div id="two-column-two" class="index__column index__column--reverse">
         <div class="index__column__img">
-        <?php get_template_part("./parts/picture-local", null, [
+        <?php get_template_part("./parts/picture", null, [
             "images" => [
                 "src" => "sample-02.jpg",
                 "width" => "600",

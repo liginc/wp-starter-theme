@@ -1,5 +1,5 @@
-<div class="global-hamburger-menu">
-  <nav>
+<div aria-hidden="true" id="hamburger-menu" class="global-hamburger-menu js-global-hamburger-menu">
+  <nav class="global-hamburger-menu__nav" aria-label="グローバルナビゲーション">
     <ul class="global-hamburger-menu__list">
       <li class="global-hamburger-menu__item"><a href="<?= URL_HOME ?>">HOME</a></li>
       <li class="global-hamburger-menu__item"><a href="<?= URL_ABOUT ?>">ABOUT</a></li>

@@ -7,7 +7,6 @@ $className = $args["className"] ?? "";
 <picture>
   <?php if (IS_TYPE === "production"): ?>
     <source srcset="<?= vite_src_images($images["src"], "avif") ?>" type="image/avif" />
-    <source srcset="<?= vite_src_images($images["src"], "webp") ?>" type="image/webp" />
   <?php endif; ?>
   <img
     src="<?= vite_src_images($images["src"]) ?>"

@@ -1,27 +1,33 @@
 
 {
-  "stylelint.validate": ["css", "scss"],
-  "scss.validate": false,
-  "css.validate": false,
-  "editor.codeActionsOnSave": {
-    "source.fixAll.stylelint": true,
-    "source.fixAll.eslint": true
+  "css.validate": false, // vscode内蔵のCSS検証を無効化
+	"scss.validate": false, // vscode内蔵のSCSS検証を無効化
+  "stylelint.validate": ["css", "scss"], // stylelintの検証を有効化
+  "editor.formatOnSave": true, // 保存時に自動フォーマットを有効化
+  "editor.defaultFormatter": "esbenp.prettier-vscode", // デフォルトのフォーマッタをPrettierに設定
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode" // 念の為HTMLのフォーマッタをPrettierに設定
   },
-  "editor.formatOnSave": true,
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "[php]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[javascript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode" // 念の為CSSのフォーマッタをPrettierに設定
   },
   "[scss]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "esbenp.prettier-vscode" // 念の為SCSSのフォーマッタをPrettierに設定
   },
-  "[html]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode" // 念の為JavaScriptのフォーマッタをPrettierに設定
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode" // 念の為TypeScriptのフォーマッタをPrettierに設定
+  },
+  "[php]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode" // 念の為PHPのフォーマッタをPrettierに設定
   },
   "[json]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "esbenp.prettier-vscode" // 念の為JSONのフォーマッタをPrettierに設定
+  },
+  "editor.codeActionsOnSave": {
+    "source.fixAll.stylelint": "explicit", // 保存時にstylelintで自動修正を有効化
+    "source.fixAll.eslint": "explicit" // 保存時にESLintで自動修正を有効化
   },
 }

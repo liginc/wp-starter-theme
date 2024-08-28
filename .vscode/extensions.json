@@ -1,0 +1,6 @@
+{
+  // 推奨VSCode Extensionリスト. identifierで指定
+  "recommendations": ["esbenp.prettier-vscode"],
+  // このワークスペースで推奨しないVSCode Extensionリスト. identifierで指定
+  "unwantedRecommendations": []
+}

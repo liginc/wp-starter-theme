@@ -11,11 +11,13 @@
 </head>
 
 <body id="top" data-type="<?= IS_TYPE ?>" <?php body_class(); ?>>
+  <!-- グリッド補助線 -->
   <?php if (IS_TYPE_LOCAL) {
       get_template_part("./parts/helper-grid");
   } ?>
+  <a class="hidden" href="#content">本文へ移動</a>
   <header class="global-header">
-    <nav>
+    <nav aria-label="グローバルナビゲーション">
       <ul class="global-header__list">
         <li><a href="<?= URL_HOME ?>">HOME</a></li>
         <li><a href="<?= URL_ABOUT ?>">ABOUT</a></li>
