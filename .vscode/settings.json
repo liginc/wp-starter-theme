@@ -20,9 +20,6 @@
   "[typescript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode" // 念の為TypeScriptのフォーマッタをPrettierに設定
   },
-  "[php]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode" // 念の為PHPのフォーマッタをPrettierに設定
-  },
   "[json]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode" // 念の為JSONのフォーマッタをPrettierに設定
   },

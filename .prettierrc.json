@@ -1,5 +1,4 @@
 {
-  "plugins": ["@prettier/plugin-php"],
   "arrowParens": "always",
   "printWidth": 1000
 }
