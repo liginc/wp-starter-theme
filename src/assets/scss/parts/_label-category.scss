@@ -1,0 +1,27 @@
+.label-category {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    font-weight: bold;
+
+    &::before {
+        display: inline-block;
+        width: 8px;
+        height: 8px;
+        margin-right: 8px;
+        content: "";
+        border-radius: 50%;
+    }
+}
+
+.label-category[data-slug="frontend"]::before {
+    background-color: $color-green;
+}
+
+.label-category[data-slug="backend"]::before {
+    background-color: $color-yellow;
+}
+
+.label-category[data-slug="programming"]::before {
+    background-color: $color-red;
+}

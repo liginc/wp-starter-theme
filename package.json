@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "🌊 simple wordpress starter theme by wp-env & vite",
   "scripts": {
-    "dev": "cross-env NODE_ENV=development vite --host",
+    "dev": "cross-env NODE_ENV=local vite --host",
+    "build:dev": "cross-env NODE_ENV=development vite build && npm run press:images",
+    "build:stg": "cross-env NODE_ENV=staging vite build && npm run press:images",
     "build": "cross-env NODE_ENV=production vite build && npm run press:images",
     "preview": "vite preview",
     "press:images": "node convert.images.mjs",
@@ -32,7 +34,6 @@
   "license": "ISC",
   "devDependencies": {
     "@markuplint/php-parser": "^3.10.0",
-    "@prettier/plugin-php": "^0.20.1",
     "@wordpress/env": "^5.15.0",
     "autoprefixer": "^10.4.14",
     "commander": "^11.0.0",
@@ -55,6 +56,7 @@
     "stylelint-config-standard-scss": "^9.0.0",
     "stylelint-prettier": "^4.0.2",
     "svgo": "^3.0.2",
+    "typescript": "^5.5.4",
     "vite": "^4.2.0",
     "vite-plugin-browser-sync": "^1.0.6",
     "vite-plugin-live-reload": "^3.0.2",

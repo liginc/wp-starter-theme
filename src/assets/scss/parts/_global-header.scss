@@ -1,0 +1,17 @@
+.global-header {
+    position: fixed;
+    top: 30px;
+    left: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0 2rem;
+    font-size: vw(17);
+}
+
+.global-header__list {
+    display: flex;
+    gap: vw(20);
+}

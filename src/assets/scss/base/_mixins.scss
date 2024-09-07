@@ -1,0 +1,47 @@
+// 三点リーダー
+@mixin line-clamp($num, $num-sp: null) {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: $num;
+    overflow: hidden;
+
+    @if $num-sp {
+        @include sp {
+            -webkit-line-clamp: $num-sp;
+        }
+    }
+}
+
+// hover可能なデバイスのみに適用
+@mixin hover {
+    @media (hover: hover) and (pointer: fine) {
+        &:hover {
+            @content;
+        }
+    }
+}
+
+// メディアクエリ
+@mixin mq_free($bp: map-get($breakpoints, md)) {
+    @media screen and (max-width: #{$bp}px) {
+        @content;
+    }
+}
+
+@mixin pc() {
+    @media screen and (min-width: #{map-get($breakpoints, lg)}) {
+        @content;
+    }
+}
+
+@mixin tab() {
+    @media screen and (max-width: #{map-get($breakpoints, lg)}) {
+        @content;
+    }
+}
+
+@mixin sp() {
+    @media screen and (max-width: #{map-get($breakpoints, md)}) {
+        @content;
+    }
+}

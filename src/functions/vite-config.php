@@ -14,6 +14,8 @@ function vite_src_js($name)
         return VITE_SERVER . "/src/assets/" . $name;
     } elseif (IS_TYPE === "production") {
         // production mode
+        // .tsを.jsに置換
+        $name = str_replace(".ts", ".js", $name);
         return URL_JS . $name . "?ver=" . date("His");
     }
 }
@@ -25,7 +27,7 @@ function vite_src_css($name)
 {
     if (IS_TYPE === "local") {
         // develop mode
-        return VITE_SERVER . "/src/assets/css/" . $name;
+        return VITE_SERVER . "/src/assets/scss/" . $name;
     } elseif (IS_TYPE === "production") {
         // production mode
         // .scssを.cssに置換
