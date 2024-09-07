@@ -3,27 +3,27 @@
  * @param {object} e イベントオブジェクト
  */
 const preventEvent = (e) => {
-  e.preventDefault();
+    e.preventDefault();
 };
 
 /**
  * @description スクロール禁止
  */
 const scrollEventNone = () => {
-  document.addEventListener("wheel", preventEvent, { passive: false });
-  document.addEventListener("scroll", preventEvent, { passive: false });
-  document.addEventListener("touchmove", preventEvent, { passive: false });
-  document.addEventListener("keydown", preventEvent, { passive: false });
+    document.addEventListener("wheel", preventEvent, { passive: false });
+    document.addEventListener("scroll", preventEvent, { passive: false });
+    document.addEventListener("touchmove", preventEvent, { passive: false });
+    document.addEventListener("keydown", preventEvent, { passive: false });
 };
 
 /**
  * @description スクロール解除
  */
 const scrollEventAuto = () => {
-  document.removeEventListener("wheel", preventEvent, { passive: false });
-  document.removeEventListener("scroll", preventEvent, { passive: false });
-  document.removeEventListener("touchmove", preventEvent, { passive: false });
-  document.removeEventListener("keydown", preventEvent, { passive: false });
+    document.removeEventListener("wheel", preventEvent, { passive: false });
+    document.removeEventListener("scroll", preventEvent, { passive: false });
+    document.removeEventListener("touchmove", preventEvent, { passive: false });
+    document.removeEventListener("keydown", preventEvent, { passive: false });
 };
 
 /**
