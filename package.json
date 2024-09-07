@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "🌊 simple wordpress starter theme by wp-env & vite",
   "scripts": {
-    "dev": "cross-env NODE_ENV=development vite --host",
+    "dev": "cross-env NODE_ENV=local vite --host",
+    "build:dev": "cross-env NODE_ENV=development vite build && npm run press:images",
+    "build:stg": "cross-env NODE_ENV=staging vite build && npm run press:images",
     "build": "cross-env NODE_ENV=production vite build && npm run press:images",
     "preview": "vite preview",
     "press:images": "node convert.images.mjs",
