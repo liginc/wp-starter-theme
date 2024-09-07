@@ -1,9 +1,6 @@
 {
   "plugins": ["stylelint-prettier"],
-  "extends": [
-    "stylelint-config-standard-scss",
-    "stylelint-config-recess-order"
-  ],
+  "extends": ["stylelint-config-standard-scss", "stylelint-config-recess-order"],
   "rules": {
     "scss/at-rule-no-unknown": null,
     "scss/at-mixin-pattern": null,
@@ -15,9 +12,5 @@
     "selector-pseudo-element-no-unknown": null,
     "prettier/prettier": true
   },
-  "ignoreFiles": [
-    "node_modules/",
-    "src/assets/css/base/_destyle.scss",
-    "plugins/**/*"
-  ]
+  "ignoreFiles": ["node_modules/", "src/assets/scss/base/_destyle.scss", "plugins/**/*"]
 }

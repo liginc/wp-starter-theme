@@ -31,6 +31,6 @@ const scrollEventAuto = () => {
  * @description 背景固定を切り替えられるが、コンテンツの中身をスクロールさせたい場合は追加で実装するかfixedで固定させる必要があります。
  * @param {boolean} state スクロールを禁止するか解除するかを切り替える真偽値。true=>固定 / false=>解除。
  */
-export const disableNativeScroll = (state) => {
+export const disableNativeScroll = (state: boolean) => {
   state ? scrollEventNone() : scrollEventAuto();
 };

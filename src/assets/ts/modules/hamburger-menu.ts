@@ -8,23 +8,23 @@ export const hamburgerMenu = () => {
 
   const openMenu = () => {
     disableNativeScroll(true);
-    body.classList.add("is-hamburger-menu-open");
-    btn.setAttribute("aria-expanded", "true");
-    btn.setAttribute("aria-label", "メニューを閉じる");
-    menu.classList.add("is-open");
-    menu.setAttribute("aria-hidden", "false");
+    body?.classList.add("is-hamburger-menu-open");
+    btn?.setAttribute("aria-expanded", "true");
+    btn?.setAttribute("aria-label", "メニューを閉じる");
+    menu?.classList.add("is-open");
+    menu?.setAttribute("aria-hidden", "false");
   };
 
   const closeMenu = () => {
     disableNativeScroll(false);
-    body.classList.remove("is-hamburger-menu-open");
-    btn.setAttribute("aria-expanded", "false");
-    btn.setAttribute("aria-label", "メニューを開く");
-    menu.classList.remove("is-open");
-    menu.setAttribute("aria-hidden", "true");
+    body?.classList.remove("is-hamburger-menu-open");
+    btn?.setAttribute("aria-expanded", "false");
+    btn?.setAttribute("aria-label", "メニューを開く");
+    menu?.classList.remove("is-open");
+    menu?.setAttribute("aria-hidden", "true");
   };
 
-  btn.addEventListener("click", () => {
+  btn?.addEventListener("click", () => {
     isOpen = !isOpen;
 
     if (isOpen) {

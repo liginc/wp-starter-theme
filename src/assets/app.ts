@@ -2,10 +2,10 @@
 // include your assets here
 
 // get styles
-import "./css/app.scss";
+import "./scss/app.scss";
 
 // get scripts
-import "./js/app.js";
+import "./ts/app";
 
 // get svg
 import.meta.globEager("./svg-sprite/*.svg");

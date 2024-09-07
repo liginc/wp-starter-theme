@@ -21,10 +21,10 @@ export const gridHelper = () => {
 
   document.addEventListener("keypress", (e) => {
     if (e.code == "KeyD" && isPress == false) {
-      grid.classList.remove("is-hidden");
+      grid?.classList.remove("is-hidden");
       isPress = true;
     } else {
-      grid.classList.add("is-hidden");
+      grid?.classList.add("is-hidden");
       isPress = false;
     }
   });

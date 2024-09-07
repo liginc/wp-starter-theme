@@ -3,9 +3,9 @@
 </footer>
 <?php wp_footer(); ?>
 <?php if (is_front_page()): ?>
-  <script type="module" crossorigin src="<?= vite_src_js("front-page.js") ?>"></script>
+  <script type="module" crossorigin src="<?= vite_src_js("front-page.ts") ?>"></script>
 <?php endif; ?>
-<script type="module" crossorigin src="<?= vite_src_js("app.js") ?>"></script>
+<script type="module" crossorigin src="<?= vite_src_js("app.ts") ?>"></script>
 </body>
 
 </html>

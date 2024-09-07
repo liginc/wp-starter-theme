@@ -10,7 +10,7 @@ export const BESTVIEW = {
   y: 800,
 };
 
-export const IS_TYPE_LOCAL = document.querySelector("body").dataset.type === "local" ? true : false;
+export const IS_TYPE_LOCAL = document.querySelector("body")?.dataset.type === "local" ? true : false;
 
 // アニメーション時間
 export const DURASION = {
