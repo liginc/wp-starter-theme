@@ -1,3 +1,3 @@
 export const slider = () => {
-    // console.log('init')
+	// console.log('init')
 };

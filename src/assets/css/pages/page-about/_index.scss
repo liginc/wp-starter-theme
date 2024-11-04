@@ -1,21 +1,21 @@
 .about {
-    position: relative;
+	position: relative;
 }
 
 .about__bg {
-    padding: 140px 0 0;
+	padding: 140px 0 0;
 }
 
 .about__inner {
-    margin: 120px 0 0;
+	margin: 120px 0 0;
 }
 
 .about__text {
-    font-size: vw(17);
-    line-height: 1.6;
-    letter-spacing: 0.02em;
+	font-size: vw(17);
+	line-height: 1.6;
+	letter-spacing: 0.02em;
 }
 
 .about__text + .about__text {
-    margin: 32px 0 0;
+	margin: 32px 0 0;
 }

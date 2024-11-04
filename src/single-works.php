@@ -7,8 +7,8 @@ $image_id = get_post_thumbnail_id($id);
 $image_alt = get_post_meta($image_id, "_wp_attachment_image_alt", true);
 $image_src = get_the_post_thumbnail_url();
 $images = [
-    "src" => $image_src,
-    "alt" => $image_alt,
+	"src" => $image_src,
+	"alt" => $image_alt,
 ];
 ?>
 
@@ -16,7 +16,7 @@ $images = [
   <div class="single-works__bg">
     <div class="container">
       <?php get_template_part("./parts/heading-page", null, [
-          "title" => "SINGLE",
+      	"title" => "SINGLE",
       ]); ?>
       <div class="single-works__inner">
         <h2 class="single-works__title"><?= $title ?></h2>

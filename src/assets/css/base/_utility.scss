@@ -1,29 +1,29 @@
 @use "mixins" as *;
 
 [data-only-show="pc"] {
-    display: block;
+	display: block;
 
-    @include sp {
-        display: none !important;
-    }
+	@include sp {
+		display: none !important;
+	}
 }
 
 [data-only-show="sp"] {
-    display: none;
+	display: none;
 
-    @include sp {
-        display: block !important;
-    }
+	@include sp {
+		display: block !important;
+	}
 }
 
 .hidden {
-    position: absolute !important;
-    width: 1px !important;
-    height: 1px !important;
-    padding: 0 !important;
-    margin: -1px !important;
-    overflow: hidden !important;
-    clip: rect(0, 0, 0, 0) !important;
-    white-space: nowrap !important;
-    border: 0 !important;
+	position: absolute !important;
+	width: 1px !important;
+	height: 1px !important;
+	padding: 0 !important;
+	margin: -1px !important;
+	overflow: hidden !important;
+	clip: rect(0, 0, 0, 0) !important;
+	white-space: nowrap !important;
+	border: 0 !important;
 }

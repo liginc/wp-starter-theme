@@ -18,8 +18,8 @@ $images = $args["images"] ?? [];
     </p>
     <div class="card-archive__category">
       <?php get_template_part("./parts/label-category", null, [
-          "slug" => $categorys["slug"],
-          "name" => $categorys["name"],
+      	"slug" => $categorys["slug"],
+      	"name" => $categorys["name"],
       ]); ?>
     </div>
     <h2 class="card-archive__title"><?= $title ?></h2>

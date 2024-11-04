@@ -1,34 +1,34 @@
 .card-archive {
-    position: relative;
+	position: relative;
 
-    @include hover {
-        & .card-archive__thumbnail img {
-            transform: scale(1.1);
-        }
-    }
+	@include hover {
+		& .card-archive__thumbnail img {
+			transform: scale(1.1);
+		}
+	}
 }
 
 .card-archive__thumbnail {
-    position: relative;
-    height: vw(220);
-    overflow: hidden;
+	position: relative;
+	height: vw(220);
+	overflow: hidden;
 
-    & img {
-        height: 100%;
-        object-fit: cover;
-        transition: transform $duration-full $easing-transform;
-    }
+	& img {
+		height: 100%;
+		object-fit: cover;
+		transition: transform $duration-full $easing-transform;
+	}
 }
 
 .card-archive__category {
-    margin: 24px 0 0;
+	margin: 24px 0 0;
 }
 
 .card-archive__title {
-    margin: 18px 0 0;
-    font-size: vw(17);
-    font-weight: bold;
-    line-height: 1.5;
+	margin: 18px 0 0;
+	font-size: vw(17);
+	font-weight: bold;
+	line-height: 1.5;
 
-    @include line-clamp(3);
+	@include line-clamp(3);
 }

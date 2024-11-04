@@ -1,51 +1,51 @@
 .privacy {
-    position: relative;
+	position: relative;
 }
 
 .privacy__bg {
-    padding: 140px 0 0;
+	padding: 140px 0 0;
 }
 
 .privacy__inner {
-    margin: 120px 0 0;
+	margin: 120px 0 0;
 }
 
 .privacy__text {
-    font-size: vw(17);
-    line-height: 1.6;
-    letter-spacing: 0.02em;
+	font-size: vw(17);
+	line-height: 1.6;
+	letter-spacing: 0.02em;
 }
 
 .privacy__wrapper {
-    margin: 100px 0 0;
+	margin: 100px 0 0;
 }
 
 .privacy__contents + .privacy__contents {
-    margin: 60px 0 0;
+	margin: 60px 0 0;
 }
 
 .privacy__contents__title {
-    position: relative;
-    padding: 0 0 0 24px;
-    font-size: vw(32);
-    font-weight: bold;
-    line-height: 1.6;
-    letter-spacing: 0.06em;
+	position: relative;
+	padding: 0 0 0 24px;
+	font-size: vw(32);
+	font-weight: bold;
+	line-height: 1.6;
+	letter-spacing: 0.06em;
 
-    &::before {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 6px;
-        height: 100%;
-        content: "";
-        background-color: $color-green;
-    }
+	&::before {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 6px;
+		height: 100%;
+		content: "";
+		background-color: $color-green;
+	}
 }
 
 .privacy__contents__text {
-    margin: 30px 0 0;
-    font-size: vw(17);
-    line-height: 1.6;
-    letter-spacing: 0.02em;
+	margin: 30px 0 0;
+	font-size: vw(17);
+	line-height: 1.6;
+	letter-spacing: 0.02em;
 }
