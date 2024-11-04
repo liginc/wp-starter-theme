@@ -25,6 +25,6 @@
 #                 USER: $SSH_USER
 #                 SERVER: $SSH_SERVER
 #                 REMOTE_PATH: $SSH_REMOTE_PATH
-#                 LOCAL_PATH: ./dist/
+#                 LOCAL_PATH: dist/
 #                 DEBUG: "true"
 #                 SSH_PORT: $SSH_PORT
