@@ -1,0 +1,18 @@
+# http://editorconfig.org
+# pre-commitでprettier+eslintが実行されるが、
+# プログラムを書く際にIDEがPrettierを理解していない状態だとコードスタイルが既存のコードベースと合わなくなる。
+# EditorConfigはより多くのIDEでサポートされているため、EditorConfigを記載しておくことで、開発メンバのIDEがPrettierを理解しなくても、最低限インデントや最大行長などが効いた状態でプログラミングすることができる。
+
+root = true
+
+[*]
+charset = utf-8
+end_of_line = lf
+indent_style = tab
+insert_final_newline = true
+trim_trailing_whitespace = true
+max_line_length = 1200
+
+[*.md]
+max_line_length = 0
+trim_trailing_whitespace = false

@@ -5,7 +5,7 @@ get_template_part("./parts/global-header"); ?>
   <div class="about__bg">
     <div class="container">
       <?php get_template_part("./parts/heading-page", null, [
-          "title" => "ABOUT",
+      	"title" => "ABOUT",
       ]); ?>
       <div class="about__inner">
         <p class="about__text">

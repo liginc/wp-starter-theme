@@ -12,13 +12,13 @@ import { IS_TYPE_LOCAL } from "./variables";
  * viewportに関する処理
  */
 window.addEventListener("load", () => {
-  viewportSize();
-  viewportFix();
+	viewportSize();
+	viewportFix();
 });
 
 window.addEventListener("resize", () => {
-  viewportSize();
-  viewportFix();
+	viewportSize();
+	viewportFix();
 });
 
 /**

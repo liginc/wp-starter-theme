@@ -5,7 +5,7 @@ get_template_part("./parts/global-header"); ?>
   <div class="privacy__bg">
     <div class="container">
       <?php get_template_part("./parts/heading-page", null, [
-          "title" => "PRIVACY POLICY",
+      	"title" => "PRIVACY POLICY",
       ]); ?>
       <div class="privacy__inner">
         <p class="privacy__text">
