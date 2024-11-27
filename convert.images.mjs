@@ -1,3 +1,14 @@
+/**
+ * Convert images to webp and avif
+ * 
+ * sharpを使用して画像をwebpとavifに変換します。
+ * https://sharp.pixelplumbing.com/
+ * 
+ * このスクリプトは、指定されたディレクトリ内の画像ファイルを対象に、
+ * JPEG と PNG 画像を WebP と AVIF 形式に変換して出力ディレクトリに保存します。
+ * また、変換後もオリジナルの画像を保存し、その他の形式のファイルもそのままコピーします。
+ */
+
 import sharp from "sharp";
 import { globSync } from "glob";
 import path from "path";
