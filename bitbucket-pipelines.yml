@@ -1,6 +1,15 @@
 # bitbuketでの自動デプロイ設定ファイルのサンプル
 # 以下のように設定することで、masterブランチにpushされた際にビルドを行い、ビルドしたファイルをリモートサーバーにデプロイすることができる
 
+# SSH接続をする必要があるため、下記の記事を参考に公開鍵と秘密鍵を設定を行ってパイプラインを動作させてください
+# https://nao550.hateblo.jp/entry/2019/01/08/233420
+# https://qiita.com/uitspitss/items/4668a964dbedfb2af67e
+
+# SSH_USER: リモートサーバーに接続する際のユーザー名
+# SSH_SERVER: リモートサーバーのIPアドレス
+# SSH_REMOTE_PATH: リモートサーバーにデプロイする際のパス
+# SSH_PORT: リモートサーバーに接続する際のポート番号
+
 # image: node:18
 # pipelines:
 #   branches:
@@ -16,6 +25,6 @@
 #                 USER: $SSH_USER
 #                 SERVER: $SSH_SERVER
 #                 REMOTE_PATH: $SSH_REMOTE_PATH
-#                 LOCAL_PATH: $SSH_LOCAL_PATH
+#                 LOCAL_PATH: dist/
 #                 DEBUG: "true"
 #                 SSH_PORT: $SSH_PORT
